@@ -73,7 +73,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 36px 64px;
+  padding: 28px 64px;
   transition: padding .55s var(--ease-luxury), background .55s, backdrop-filter .55s, border-color .55s;
   border-bottom: 1px solid transparent;
 }
@@ -93,10 +93,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   font-family: var(--serif); font-size: 26px; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase; color: var(--white);
 }
-.nav-links { display: flex; gap: 44px; list-style: none; }
+.nav-links { display: flex; gap: 44px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
 .nav-link {
-  font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .3em; text-transform: uppercase; color: var(--mist);
+  font-family: var(--sans); font-size: 11px; font-weight: 400;
+  letter-spacing: .3em; text-transform: uppercase; color: #d8d8d8;
   text-decoration: none; position: relative;
   transition: color .3s;
 }
@@ -171,11 +171,11 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   opacity: 0; animation: fuA 1s var(--ease-luxury) 2s forwards;
 }
 .hero-tagline {
-  font-family: var(--sans); font-size: 11px; font-weight: 300;
-  letter-spacing: .22em; text-transform: uppercase; color: var(--fog);
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  letter-spacing: .22em; text-transform: uppercase; color: #bbb;
   line-height: 2.2; max-width: 260px;
 }
-.hero-tagline strong { color: var(--pearl); font-weight: 400; }
+.hero-tagline strong { color: #ffffff; font-weight: 500; }
 .hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .btn-p {
   font-family: var(--sans); font-size: 10px; font-weight: 400;
@@ -453,6 +453,18 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .rv-d3 { transition-delay: .36s }
 .rv-d4 { transition-delay: .5s }
 
+/* ── SHIMMER ── */
+@keyframes shimmerGold {
+  0%, 100% { color: var(--haze); text-shadow: none; }
+  50% { color: #e8d9be; text-shadow: 0 0 24px rgba(232,217,190,.55); }
+}
+@keyframes shimmerWhite {
+  0%, 100% { color: var(--haze); text-shadow: none; }
+  50% { color: #ededed; text-shadow: 0 0 24px rgba(237,237,237,.45); }
+}
+.shimmer-gold { animation: shimmerGold 4s ease-in-out infinite; }
+.shimmer-white { animation: shimmerWhite 4s ease-in-out infinite; animation-delay: 2s; }
+
 /* ── MOBILE ── */
 @media(max-width:960px){
   .nav { padding:24px 28px; }
@@ -620,7 +632,7 @@ export default function TheMOHHomepage() {
           zIndex:0, whiteSpace:"nowrap"
         }}>MOH</div>
 
-        <div style={{ position:"relative", zIndex:3, width:"100%", maxWidth:1400 }}>
+        <div style={{ position:"relative", zIndex:3, width:"100%", maxWidth:1400, paddingTop:"120px" }}>
           <div className="hero-eyebrow">
             Mumbai · Delhi · Bengaluru — Modern Indian Media Institution
           </div>
@@ -667,10 +679,10 @@ export default function TheMOHHomepage() {
 
           <p className="stmt-copy rv rv-d1" ref={rv}>
             Modern brands no longer<br />
-            compete for <em>visibility.</em><br />
+            compete for <em><span className="shimmer-gold">visibility.</span></em><br />
             They compete for{" "}
             <span className="accent">attention,<br />relevance,</span> and{" "}
-            <em>influence.</em>
+            <em><span className="shimmer-white">influence.</span></em>
           </p>
 
           <div className="stmt-foot rv rv-d2" ref={rv}>
@@ -742,7 +754,7 @@ export default function TheMOHHomepage() {
           <div className="foot-brand rv" ref={rv}>
             <div className="foot-the">the</div>
             <div className="foot-moh">MOH</div>
-            <div className="foot-line">Media & Growth Institution — India</div>
+            <div className="foot-line">Media & Growth Company — India</div>
           </div>
           <div className="foot-divider" />
           <ul className="foot-nav rv rv-d1" ref={rv}>
