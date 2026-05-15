@@ -415,6 +415,23 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   transition: width .6s var(--ease-luxury);
 }
 .wcard:hover .wcard-accent { width: 100%; }
+.wcard-number {
+  position: absolute; top: 44px; left: 44px; z-index: 2;
+  font-family: var(--serif); font-size: 120px; font-weight: 900;
+  color: rgba(255,255,255,0.04); line-height: 1; user-select: none;
+  pointer-events: none;
+}
+.wcard-year {
+  position: absolute; bottom: 44px; right: 44px; z-index: 2;
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.15); pointer-events: none;
+}
+.wcard-line {
+  position: absolute; top: 50%; left: 44px; z-index: 2;
+  width: 60px; height: 1px; background: rgba(184,160,122,0.2);
+  pointer-events: none;
+}
 
 /* ── PHILOSOPHY ── */
 .philo {
@@ -573,16 +590,19 @@ const WORKS = [
     tag: "Performance · eCommerce · USA",
     title: "A glove brand from America. Nobody knew them. Now they can't be ignored.",
     bg: "linear-gradient(145deg,#06060a 0%,#0e0c14 45%,#080608 100%)",
+    location: "USA", year: "2024",
   },
   {
     tag: "Growth · Real Estate · India",
     title: "They were bleeding money on ads. We rebuilt everything. In 30 days — the calls started coming.",
     bg: "linear-gradient(145deg,#0a0806 0%,#181008 45%,#0a0604 100%)",
+    location: "India", year: "2024",
   },
   {
     tag: "Brand · Automotive · India",
     title: "BMW India. One billion people saw what we made.",
     bg: "linear-gradient(145deg,#060a08 0%,#0a1210 45%,#060a06 100%)",
+    location: "India", year: "2024",
   },
 ];
 
@@ -826,11 +846,14 @@ export default function TheMOHHomepage() {
               <div className="wcard-inner">
                 <div className="wcard-bg" style={{ background: w.bg }} />
                 <div className="wcard-overlay" />
+                <div className="wcard-number">{String(i + 1).padStart(2, "0")}</div>
+                <div className="wcard-line" />
                 <div className="wcard-body">
                   <div className="wcard-tag">{w.tag}</div>
                   <h3 className="wcard-ttl">{w.title}</h3>
                   <a href="#" className="wcard-link">View Case Study</a>
                 </div>
+                <div className="wcard-year">{w.location} · {w.year}</div>
                 <div className="wcard-accent" />
               </div>
             </div>
