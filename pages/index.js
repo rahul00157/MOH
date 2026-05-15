@@ -335,7 +335,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .stmt-foot-text {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .18em; text-transform: uppercase; color: #cccccc;
+  letter-spacing: .18em; color: #cccccc;
   max-width: 400px; line-height: 2;
 }
 .stmt-num {
@@ -830,7 +830,7 @@ export default function TheMOHHomepage() {
             <div className="stmt-foot-text">
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#ffffff', marginBottom:'20px'}}>You didn't build a business. You built a belief.</p>
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#888888', marginBottom:'20px'}}>But out there nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
-              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, fontStyle:'italic', fontWeight:700, color:'#ffffff', background:'rgba(255,255,255,0.06)', padding:'12px 16px', marginBottom:'20px'}}>We engineer obsession. So when your market sees you they can't look away.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, fontStyle:'italic', fontWeight:700, color:'#ffffff', marginBottom:'20px'}}>We <span style={{background:'rgba(255,255,255,0.12)', padding:'2px 8px'}}>engineer obsession</span>. So when your market sees you they <span style={{background:'rgba(255,255,255,0.12)', padding:'2px 8px'}}>can't look away</span>.</p>
             </div>
             <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,180px)', fontWeight:900, color:'transparent', WebkitTextStroke:'1px rgba(255,255,255,0.06)', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'strokePulse 4s ease-in-out infinite'}} aria-hidden="true">MOH</div>
           </div>
