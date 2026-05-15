@@ -502,11 +502,11 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .foot-social { display: flex; gap: 36px; }
 .foot-social a {
-  font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .28em; text-transform: uppercase; color: var(--fog);
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #cccccc;
   text-decoration: none; transition: color .3s;
 }
-.foot-social a:hover { color: var(--white); }
+.foot-social a:hover { color: #ffffff; }
 
 /* ── REVEAL ANIMATIONS ── */
 .rv {
@@ -877,9 +877,9 @@ export default function TheMOHHomepage() {
         <div className="foot-bottom rv" ref={rv}>
           <span className="foot-copy">© 2025 the MOH. All rights reserved.</span>
           <div className="foot-social">
-            {["Instagram", "LinkedIn", "Behance", "Twitter"].map(s => (
-              <a key={s} href="#" onMouseEnter={ho} onMouseLeave={hl}>{s}</a>
-            ))}
+            <a href="https://www.linkedin.com/company/the-moh-media" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>LinkedIn</a>
+            <a href="https://www.instagram.com/themohmedia/" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>Instagram</a>
+            <a href="https://x.com/themohmedia" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>X (Twitter)</a>
           </div>
         </div>
       </footer>
