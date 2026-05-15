@@ -418,10 +418,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-top: 16px;
 }
 .foot-divider { width:1px; background: var(--ash); align-self: stretch; }
-.foot-nav { display: flex; flex-direction: column; gap: 18px; list-style: none; align-items: flex-end; }
+.foot-nav { display: flex; flex-direction: column; gap: 18px; list-style: none; align-items: center; }
 .foot-nav a {
-  font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .3em; text-transform: uppercase; color: var(--fog);
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #d8d8d8;
   text-decoration: none; transition: color .3s;
 }
 .foot-nav a:hover { color: var(--white); }
