@@ -501,18 +501,18 @@ const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "
 
 const WORKS = [
   {
-    tag: "Luxury Clinic Growth System",
-    title: "Skin & Soul — The Anatomy of Desire",
+    tag: "Performance · eCommerce · USA",
+    title: "A glove brand from America. Nobody knew them. Now they can't be ignored.",
     bg: "linear-gradient(145deg,#06060a 0%,#0e0c14 45%,#080608 100%)",
   },
   {
-    tag: "Modern D2C Launch",
-    title: "Mitti — Indian Earth Reimagined",
+    tag: "Growth · Real Estate · India",
+    title: "They were bleeding money on ads. We rebuilt everything. In 30 days — the calls started coming.",
     bg: "linear-gradient(145deg,#0a0806 0%,#181008 45%,#0a0604 100%)",
   },
   {
-    tag: "Premium Founder Branding",
-    title: "The Quiet Power of Suresh Mehta",
+    tag: "Brand · Automotive · India",
+    title: "BMW India. One billion people saw what we made.",
     bg: "linear-gradient(145deg,#060a08 0%,#0a1210 45%,#060a06 100%)",
   },
 ];
