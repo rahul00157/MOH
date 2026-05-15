@@ -230,6 +230,72 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .ticker-item::after { content:'·'; font-size:22px; color:var(--gold-dim); }
 @keyframes tick { to{ transform:translateX(-50%) } }
 
+/* ── SERVICES ── */
+.svc {
+  padding: 160px 64px;
+  border-top: 1px solid var(--ash);
+}
+.svc-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 80px; gap: 32px; flex-wrap: wrap;
+}
+.svc-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+}
+.svc-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.svc-title {
+  font-family: var(--serif); font-weight: 900;
+  font-size: clamp(38px, 4.5vw, 72px);
+  line-height: .95; letter-spacing: -.02em; color: var(--white);
+}
+.svc-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--ash); border-left: 1px solid var(--ash);
+}
+.svc-card {
+  border-right: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+  padding: 64px 56px; position: relative; overflow: hidden;
+  transition: background .5s var(--ease-luxury);
+}
+.svc-card::before {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(184,160,122,.04) 0%, transparent 60%);
+  opacity:0; transition: opacity .5s var(--ease-luxury);
+}
+.svc-card:hover::before { opacity:1; }
+.svc-card:hover { background: var(--soot); }
+.svc-num {
+  font-family: var(--serif); font-size: 11px; font-weight: 400;
+  letter-spacing: .4em; color: var(--gold-dim);
+  margin-bottom: 48px; display: block;
+}
+.svc-card-title {
+  font-family: var(--serif); font-weight: 900;
+  font-size: clamp(26px, 2.4vw, 42px);
+  line-height: 1.05; letter-spacing: -.02em; color: var(--white);
+  margin-bottom: 24px;
+}
+.svc-desc {
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  letter-spacing: .04em; line-height: 1.9; color: #aaaaaa;
+  max-width: 340px; margin-bottom: 48px;
+}
+.svc-arrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 10px; font-weight: 400;
+  letter-spacing: .35em; text-transform: uppercase; color: var(--gold);
+  text-decoration: none;
+  transition: gap .35s var(--ease-luxury), color .3s;
+}
+.svc-arrow::after {
+  content: '→'; font-size: 14px; letter-spacing: 0;
+  transition: transform .35s var(--ease-luxury);
+}
+.svc-card:hover .svc-arrow { gap: 20px; color: var(--gold-pale); }
+.svc-card:hover .svc-arrow::after { transform: translateX(4px); }
+
 /* ── STATEMENT ── */
 .stmt {
   padding: 200px 64px;
@@ -473,6 +539,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .hero { padding: 0 28px 80px; }
   .hero-sub { flex-direction:column; align-items:flex-start; }
   .hero-scroll { right:28px; }
+  .svc { padding:100px 28px; }
+  .svc-grid { grid-template-columns:1fr; }
+  .svc-card { padding:52px 28px; }
   .stmt { padding:100px 28px; }
   .stmt-deco { display:none; }
   .work { padding:100px 28px; }
@@ -670,6 +739,45 @@ export default function TheMOHHomepage() {
           ))}
         </div>
       </div>
+
+      {/* ──────── SERVICES ──────── */}
+      <section className="svc">
+        <div className="svc-head">
+          <div className="svc-label rv" ref={rv}>What We Do</div>
+          <h2 className="svc-title rv rv-d1" ref={rv}>Our<br /><em>disciplines.</em></h2>
+        </div>
+        <div className="svc-grid">
+          {[
+            {
+              num: "01",
+              title: "Attention Marketing",
+              desc: "We engineer scroll-stopping content that makes markets pause. Every asset is built to be remembered — not just seen.",
+            },
+            {
+              num: "02",
+              title: "Performance Growth",
+              desc: "We run paid ecosystems that compound. No wasted spend — only systems that turn attention into revenue at scale.",
+            },
+            {
+              num: "03",
+              title: "Creative & Visual",
+              desc: "Identity, campaign, and moving image — crafted for brands that refuse to be ordinary. Beauty with a strategic edge.",
+            },
+            {
+              num: "04",
+              title: "Founder Branding",
+              desc: "We turn founders into voices their market follows. Authority built through narrative, presence, and consistent signal.",
+            },
+          ].map((s, i) => (
+            <div key={s.num} className={`svc-card rv rv-d${i % 2 + 1}`} ref={rv}>
+              <span className="svc-num">{s.num}</span>
+              <h3 className="svc-card-title">{s.title}</h3>
+              <p className="svc-desc">{s.desc}</p>
+              <a href="#" className="svc-arrow" onMouseEnter={ho} onMouseLeave={hl}>Explore</a>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ──────── STATEMENT ──────── */}
       <section className="stmt">
