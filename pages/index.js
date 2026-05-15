@@ -496,7 +496,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const NAV_ITEMS = ["Home", "About", "Services", "Work", "Journal", "Contact"];
+const NAV_ITEMS = ["Home", "About Us", "What We Do", "Contact"];
 const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "Moving Image", "Editorial Direction", "Market Dominance", "Founder Branding", "Cultural Influence"];
 
 const WORKS = [
@@ -612,7 +612,7 @@ export default function TheMOHHomepage() {
             </li>
           ))}
         </ul>
-        <a href="#" className="nav-btn" onMouseEnter={ho} onMouseLeave={hl}>Commission</a>
+        <a href="#" className="nav-btn" onMouseEnter={ho} onMouseLeave={hl}>Let's Talk</a>
       </nav>
 
       {/* ──────── HERO ──────── */}
@@ -758,7 +758,7 @@ export default function TheMOHHomepage() {
           </div>
           <div className="foot-divider" />
           <ul className="foot-nav rv rv-d1" ref={rv}>
-            {[...NAV_ITEMS, "Commission"].map(n => (
+            {[...NAV_ITEMS, "Let's Talk"].map(n => (
               <li key={n}>
                 <a href="#" onMouseEnter={ho} onMouseLeave={hl}>{n}</a>
               </li>
