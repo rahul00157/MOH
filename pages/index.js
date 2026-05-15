@@ -308,25 +308,26 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   padding: 200px 64px;
   border-top: 1px solid var(--ash);
   position: relative; overflow: hidden;
+  background: #f5f4f0;
 }
 .stmt-deco {
   position: absolute; top: 80px; right: 64px;
   font-family: var(--serif); font-size: 220px; font-weight: 900;
-  color: rgba(255,255,255,.018); letter-spacing: -.04em;
+  color: rgba(0,0,0,0.04); letter-spacing: -.04em;
   line-height: 1; pointer-events: none; user-select: none;
 }
 .stmt-inner { max-width: 1300px; }
 .stmt-label {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: .5em; text-transform: uppercase; color: #8a7a5a;
   display: flex; align-items: center; gap: 16px;
   margin-bottom: 72px;
 }
-.stmt-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.stmt-label::before { content:''; display:block; width:28px; height:1px; background:#8a7a5a; }
 .stmt-copy {
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(28px, 3.5vw, 58px);
-  line-height: 1.18; letter-spacing: -.015em; color: var(--white);
+  line-height: 1.18; letter-spacing: -.015em; color: #111111;
 }
 .stmt-copy em { font-style: italic; color: var(--haze); }
 .stmt-copy .accent { color: var(--gold-pale); }
@@ -337,12 +338,12 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .stmt-foot-text {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .18em; text-transform: uppercase; color: #bbbbbb;
+  letter-spacing: .18em; text-transform: uppercase; color: #555555;
   max-width: 400px; line-height: 2;
 }
 .stmt-num {
   font-family: var(--serif); font-size: 88px; font-weight: 900;
-  color: var(--ash); letter-spacing: -.04em; line-height: 1;
+  color: #cccccc; letter-spacing: -.04em; line-height: 1;
   user-select: none;
 }
 
@@ -545,12 +546,12 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── SHIMMER ── */
 @keyframes shimmerGold {
-  0%, 100% { color: var(--haze); text-shadow: none; }
-  50% { color: #e8d9be; text-shadow: 0 0 24px rgba(232,217,190,.55); }
+  0%, 100% { color: #444444; text-shadow: none; }
+  50% { color: #111111; text-shadow: none; }
 }
 @keyframes shimmerWhite {
-  0%, 100% { color: var(--haze); text-shadow: none; }
-  50% { color: #ededed; text-shadow: 0 0 24px rgba(237,237,237,.45); }
+  0%, 100% { color: #444444; text-shadow: none; }
+  50% { color: #8a7a5a; text-shadow: none; }
 }
 .shimmer-gold { animation: shimmerGold 4s ease-in-out infinite; }
 .shimmer-white { animation: shimmerWhite 4s ease-in-out infinite; animation-delay: 2s; }
@@ -807,7 +808,7 @@ export default function TheMOHHomepage() {
       </section>
 
       {/* ──────── STATEMENT ──────── */}
-      <section className="stmt">
+      <section className="stmt" style={{ background: '#f5f4f0' }}>
         <div className="stmt-deco" aria-hidden="true">MOH</div>
         <div className="stmt-inner">
           <div className="stmt-label rv" ref={rv}>Manifesto</div>
