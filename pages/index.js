@@ -552,6 +552,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .shimmer-gold { animation: shimmerGold 4s ease-in-out infinite; }
 .shimmer-white { animation: shimmerWhite 4s ease-in-out infinite; animation-delay: 2s; }
+@keyframes strokePulse {
+  0%,100%{ -webkit-text-stroke:1px rgba(255,255,255,0.06); }
+  50%{ -webkit-text-stroke:1px rgba(184,160,122,0.25); }
+}
 
 /* ── MOBILE ── */
 @media(max-width:960px){
@@ -820,11 +824,9 @@ export default function TheMOHHomepage() {
 
           <div className="stmt-foot rv rv-d2" ref={rv}>
             <p className="stmt-foot-text">
-              the MOH exists at the intersection of strategy,
-              story, and aesthetic power — built for businesses
-              that refuse to be ordinary.
+              You didn't build a business. You built a belief. But out there — nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder. We engineer obsession. So when your market sees you — they can't look away.
             </p>
-            <div className="stmt-num" aria-hidden="true">MOH</div>
+            <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,180px)', fontWeight:900, color:'transparent', WebkitTextStroke:'1px rgba(255,255,255,0.06)', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'strokePulse 4s ease-in-out infinite'}} aria-hidden="true">MOH</div>
           </div>
         </div>
       </section>
