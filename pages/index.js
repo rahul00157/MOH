@@ -34,6 +34,11 @@ const G = `
   --sans:   'DM Sans', 'Helvetica Neue', sans-serif;
 
   --ease-luxury: cubic-bezier(0.19, 1, 0.22, 1);
+
+  --light-bg:     #f5f4f0;
+  --light-text:   #111111;
+  --light-sub:    #444444;
+  --light-border: #e0ddd8;
 }
 
 html { background: var(--ink); color: var(--pearl); overflow-x: hidden; scroll-behavior: smooth; }
@@ -234,6 +239,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .svc {
   padding: 160px 64px;
   border-top: 1px solid var(--ash);
+  background: #f5f4f0;
 }
 .svc-head {
   display: flex; align-items: flex-end; justify-content: space-between;
@@ -241,51 +247,52 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .svc-label {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: .5em; text-transform: uppercase; color: #8a7a5a;
   display: flex; align-items: center; gap: 16px;
 }
-.svc-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.svc-label::before { content:''; display:block; width:28px; height:1px; background:#8a7a5a; }
 .svc-title {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(38px, 4.5vw, 72px);
-  line-height: .95; letter-spacing: -.02em; color: var(--white);
+  line-height: .95; letter-spacing: -.02em; color: #111111;
 }
 .svc-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--ash); border-left: 1px solid var(--ash);
+  border-top: 1px solid var(--light-border); border-left: 1px solid var(--light-border);
 }
 .svc-card {
-  border-right: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+  border-right: 1px solid var(--light-border); border-bottom: 1px solid var(--light-border);
   padding: 64px 56px; position: relative; overflow: hidden;
+  background: #eeece8;
   transition: background .5s var(--ease-luxury);
 }
 .svc-card::before {
   content:''; position:absolute; inset:0;
-  background: linear-gradient(135deg, rgba(184,160,122,.04) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(138,122,90,.06) 0%, transparent 60%);
   opacity:0; transition: opacity .5s var(--ease-luxury);
 }
 .svc-card:hover::before { opacity:1; }
-.svc-card:hover { background: var(--soot); }
+.svc-card:hover { background: #e5e2dc; }
 .svc-num {
   font-family: var(--serif); font-size: 11px; font-weight: 400;
-  letter-spacing: .4em; color: var(--gold-dim);
+  letter-spacing: .4em; color: #8a7a5a;
   margin-bottom: 48px; display: block;
 }
 .svc-card-title {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(26px, 2.4vw, 42px);
-  line-height: 1.05; letter-spacing: -.02em; color: var(--white);
+  line-height: 1.05; letter-spacing: -.02em; color: #111111;
   margin-bottom: 24px;
 }
 .svc-desc {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .04em; line-height: 1.9; color: #aaaaaa;
+  letter-spacing: .04em; line-height: 1.9; color: #555555;
   max-width: 340px; margin-bottom: 48px;
 }
 .svc-arrow {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--sans); font-size: 10px; font-weight: 400;
-  letter-spacing: .35em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: .35em; text-transform: uppercase; color: #8a7a5a;
   text-decoration: none;
   transition: gap .35s var(--ease-luxury), color .3s;
 }
@@ -293,7 +300,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   content: '→'; font-size: 14px; letter-spacing: 0;
   transition: transform .35s var(--ease-luxury);
 }
-.svc-card:hover .svc-arrow { gap: 20px; color: var(--gold-pale); }
+.svc-card:hover .svc-arrow { gap: 20px; color: #6a5a3a; }
 .svc-card:hover .svc-arrow::after { transform: translateX(4px); }
 
 /* ── STATEMENT ── */
@@ -761,7 +768,7 @@ export default function TheMOHHomepage() {
       </div>
 
       {/* ──────── SERVICES ──────── */}
-      <section className="svc">
+      <section className="svc" style={{ background: "#f5f4f0" }}>
         <div className="svc-head">
           <div className="svc-label rv" ref={rv}>What We Do</div>
           <h2 className="svc-title rv rv-d1" ref={rv}>Our<br /><em>disciplines.</em></h2>
