@@ -823,9 +823,12 @@ export default function TheMOHHomepage() {
           </p>
 
           <div className="stmt-foot rv rv-d2" ref={rv}>
-            <p className="stmt-foot-text">
-              You didn't build a business. You built a belief. But out there — nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder. We engineer obsession. So when your market sees you — they can't look away.
-            </p>
+            <div className="stmt-foot-text">
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(18px,2.2vw,32px)', fontWeight:700, color:'#ffffff', lineHeight:1.4, marginBottom:'20px'}}>You didn't build a business. You built a belief.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(15px,1.6vw,24px)', fontStyle:'italic', color:'#aaaaaa', lineHeight:1.4, marginBottom:'20px'}}>But out there — nobody's paying attention.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(15px,1.6vw,24px)', fontWeight:700, color:'#ffffff', lineHeight:1.4, marginBottom:'20px'}}>Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(16px,1.8vw,28px)', fontWeight:700, color:'var(--gold)', lineHeight:1.4, marginBottom:'20px'}}>We engineer obsession. So when your market sees you — they can't look away.</p>
+            </div>
             <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,180px)', fontWeight:900, color:'transparent', WebkitTextStroke:'1px rgba(255,255,255,0.06)', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'strokePulse 4s ease-in-out infinite'}} aria-hidden="true">MOH</div>
           </div>
         </div>
