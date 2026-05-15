@@ -101,7 +101,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .nav-links { display: flex; gap: 44px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
 .nav-link {
   font-family: var(--sans); font-size: 11px; font-weight: 400;
-  letter-spacing: .3em; text-transform: uppercase; color: #d8d8d8;
+  letter-spacing: .3em; text-transform: uppercase; color: #e0e0e0;
   text-decoration: none; position: relative;
   transition: color .3s;
 }
@@ -177,7 +177,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .hero-tagline {
   font-family: var(--sans); font-size: 14px; font-weight: 300;
-  letter-spacing: .22em; text-transform: uppercase; color: #e0e0e0;
+  letter-spacing: .22em; text-transform: uppercase; color: #e8e8e8;
   line-height: 2.2; max-width: 260px;
 }
 .hero-tagline strong { color: #ffffff; font-weight: 500; }
@@ -228,7 +228,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .ticker-item {
   font-family: var(--serif2); font-style: italic;
-  font-size: 13px; color: var(--fog);
+  font-size: 13px; color: #888888;
   padding: 0 64px; white-space: nowrap;
   display: flex; align-items: center; gap: 64px;
 }
@@ -279,12 +279,12 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .svc-card-title {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(26px, 2.4vw, 42px);
-  line-height: 1.05; letter-spacing: -.02em; color: var(--white);
+  line-height: 1.05; letter-spacing: -.02em; color: #ffffff;
   margin-bottom: 24px;
 }
 .svc-desc {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .04em; line-height: 1.9; color: #aaaaaa;
+  letter-spacing: .04em; line-height: 1.9; color: #c0c0c0;
   max-width: 340px; margin-bottom: 48px;
 }
 .svc-arrow {
@@ -324,7 +324,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .stmt-copy {
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(28px, 3.5vw, 58px);
-  line-height: 1.18; letter-spacing: -.015em; color: var(--white);
+  line-height: 1.18; letter-spacing: -.015em; color: #f0f0f0;
 }
 .stmt-copy em { font-style: italic; color: var(--haze); }
 .stmt-copy .accent { color: var(--gold-pale); }
@@ -335,7 +335,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .stmt-foot-text {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .18em; text-transform: uppercase; color: #bbbbbb;
+  letter-spacing: .18em; text-transform: uppercase; color: #cccccc;
   max-width: 400px; line-height: 2;
 }
 .stmt-num {
@@ -356,12 +356,12 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .work-title {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(44px, 5.5vw, 88px);
-  line-height: .95; letter-spacing: -.02em; color: var(--white);
+  line-height: .95; letter-spacing: -.02em; color: #ffffff;
 }
 .work-title span { display:block; font-style:italic; color:var(--haze); font-size:.72em; }
 .work-idx {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .35em; text-transform: uppercase; color: var(--fog);
+  letter-spacing: .35em; text-transform: uppercase; color: #888888;
 }
 .work-grid {
   display: grid;
@@ -395,14 +395,14 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .wcard-tag {
   font-family: var(--sans); font-size: 9px; font-weight: 300;
-  letter-spacing: .45em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: .45em; text-transform: uppercase; color: #c8a87a;
   margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
 }
 .wcard-tag::before { content:'—'; }
 .wcard-ttl {
   font-family: var(--serif); font-weight: 700;
   font-size: clamp(22px, 2.6vw, 40px);
-  line-height: 1.1; letter-spacing: -.01em; color: var(--white);
+  line-height: 1.1; letter-spacing: -.01em; color: #ffffff;
   margin-bottom: 22px;
 }
 .wcard-link {
@@ -470,11 +470,11 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(40px, 4.5vw, 72px);
   letter-spacing: -.02em; line-height: 1;
-  color: var(--white); margin-bottom: 28px;
+  color: #ffffff; margin-bottom: 28px;
 }
 .philo-desc {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .12em; line-height: 2; color: #aaaaaa;
+  letter-spacing: .12em; line-height: 2; color: #c0c0c0;
   max-width: 280px;
   transition: color .4s;
 }
@@ -520,7 +520,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .foot-copy {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .2em; color: var(--fog);
+  letter-spacing: .2em; color: #888888;
 }
 .foot-social { display: flex; gap: 36px; }
 .foot-social a {
