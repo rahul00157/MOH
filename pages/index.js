@@ -330,7 +330,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .stmt-copy .accent { color: var(--gold-pale); }
 .stmt-foot {
   display: flex; align-items: center; justify-content: space-between;
-  margin-top: 100px; padding-top: 56px; border-top: 1px solid var(--ash);
+  margin-top: 100px; padding-top: 32px; border-top: 1px solid var(--ash);
   gap: 40px; flex-wrap: wrap;
 }
 .stmt-foot-text {
@@ -828,9 +828,9 @@ export default function TheMOHHomepage() {
 
           <div className="stmt-foot rv rv-d2" ref={rv}>
             <div className="stmt-foot-text">
-              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(18px,2vw,28px)', lineHeight:1.6, color:'#ffffff', marginBottom:'20px'}}>You didn't build a business. You built a belief.</p>
-              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(18px,2vw,28px)', lineHeight:1.6, color:'#888888', marginBottom:'20px'}}>But out there nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
-              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(18px,2vw,28px)', lineHeight:1.6, fontStyle:'italic', fontWeight:700, color:'#cc2200', marginBottom:'20px', animation:'highlightPulse 3s ease-in-out infinite'}}>We engineer obsession. So when your market sees you they can't look away.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#ffffff', marginBottom:'20px'}}>You didn't build a business. You built a belief.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#888888', marginBottom:'20px'}}>But out there nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
+              <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, fontStyle:'italic', fontWeight:700, color:'#ffffff', background:'rgba(255,255,255,0.06)', padding:'12px 16px', marginBottom:'20px'}}>We engineer obsession. So when your market sees you they can't look away.</p>
             </div>
             <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,180px)', fontWeight:900, color:'transparent', WebkitTextStroke:'1px rgba(255,255,255,0.06)', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'strokePulse 4s ease-in-out infinite'}} aria-hidden="true">MOH</div>
           </div>
