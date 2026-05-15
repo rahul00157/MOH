@@ -565,7 +565,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const NAV_ITEMS = ["Home", "About Us", "What We Do", "Contact"];
+const NAV_ITEMS = ["Home", "About Us", "What We Do", "Work", "Contact"];
 const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "Moving Image", "Editorial Direction", "Market Dominance", "Founder Branding", "Cultural Influence"];
 
 const WORKS = [
