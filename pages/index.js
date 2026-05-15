@@ -149,7 +149,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .hero-hl {
   position: relative; z-index: 3;
   font-family: var(--serif); font-weight: 900;
-  font-size: clamp(72px, 11.5vw, 196px);
+  font-size: clamp(56px, 8vw, 140px);
   line-height: .9; letter-spacing: -.02em;
   color: var(--white); overflow: hidden;
   margin-bottom: 0;
@@ -171,8 +171,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   opacity: 0; animation: fuA 1s var(--ease-luxury) 2s forwards;
 }
 .hero-tagline {
-  font-family: var(--sans); font-size: 13px; font-weight: 300;
-  letter-spacing: .22em; text-transform: uppercase; color: #bbb;
+  font-family: var(--sans); font-size: 14px; font-weight: 300;
+  letter-spacing: .22em; text-transform: uppercase; color: #e0e0e0;
   line-height: 2.2; max-width: 260px;
 }
 .hero-tagline strong { color: #ffffff; font-weight: 500; }
@@ -252,7 +252,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .stmt-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 .stmt-copy {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(34px, 4.8vw, 78px);
+  font-size: clamp(28px, 3.5vw, 58px);
   line-height: 1.18; letter-spacing: -.015em; color: var(--white);
 }
 .stmt-copy em { font-style: italic; color: var(--haze); }
@@ -263,8 +263,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   gap: 40px; flex-wrap: wrap;
 }
 .stmt-foot-text {
-  font-family: var(--sans); font-size: 12px; font-weight: 300;
-  letter-spacing: .18em; text-transform: uppercase; color: var(--fog);
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  letter-spacing: .18em; text-transform: uppercase; color: #bbbbbb;
   max-width: 400px; line-height: 2;
 }
 .stmt-num {
@@ -385,8 +385,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   color: var(--white); margin-bottom: 28px;
 }
 .philo-desc {
-  font-family: var(--sans); font-size: 11px; font-weight: 300;
-  letter-spacing: .12em; line-height: 2; color: var(--fog);
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  letter-spacing: .12em; line-height: 2; color: #aaaaaa;
   max-width: 280px;
   transition: color .4s;
 }
