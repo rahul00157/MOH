@@ -584,8 +584,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .work { padding:100px 28px; }
   .work-grid { grid-template-columns:1fr; }
   .wcard:first-child { grid-row:span 1; min-height:420px; }
-  .wcard-inner, .wcard:first-child .wcard-inner { min-height:360px; }
-  .wcard-stats { display:none; }
+  .wcard-inner, .wcard:first-child .wcard-inner { min-height:420px; }
+  .wcard-stats { position:relative; top:auto; left:auto; transform:none; padding:28px 28px 0 28px; }
+  .wcard-stat-num { font-size:clamp(36px,10vw,56px); }
   .wcard-body { padding:28px; }
   .wcard-ttl { font-size:clamp(20px,5vw,32px); }
   .philo { grid-template-columns:1fr; }
