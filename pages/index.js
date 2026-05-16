@@ -585,6 +585,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .work-grid { grid-template-columns:1fr; }
   .wcard:first-child { grid-row:span 1; min-height:420px; }
   .wcard-inner, .wcard:first-child .wcard-inner { min-height:360px; }
+  .wcard-stats { display:none; }
+  .wcard-body { padding:28px; }
+  .wcard-ttl { font-size:clamp(20px,5vw,32px); }
   .philo { grid-template-columns:1fr; }
   .philo-card { border-right:none; border-bottom:1px solid var(--ash); padding:72px 28px; }
   .foot { padding:80px 28px 48px; }
