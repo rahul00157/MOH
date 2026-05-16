@@ -750,7 +750,7 @@ export default function TheMOHHomepage() {
         <ul className="nav-links">
           {NAV_ITEMS.map(n => (
             <li key={n}>
-              <a href="#" className="nav-link" onMouseEnter={onEnter} onMouseLeave={onLeave}>{n}</a>
+              <a href={n === "About Us" ? "/about" : "#"} className="nav-link" onMouseEnter={onEnter} onMouseLeave={onLeave}>{n}</a>
             </li>
           ))}
         </ul>
