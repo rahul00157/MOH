@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Navbar from "../components/Navbar";
 
 /* ─────────────────────────────────────────────
@@ -123,9 +123,78 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 @keyframes fadeUp { from{ opacity:0; transform:translateY(32px) } to{ opacity:1; transform:translateY(0) } }
 
+/* ── STORY ── */
+.story {
+  padding: 160px 64px;
+  border-top: 1px solid var(--ash);
+  position: relative; overflow: hidden;
+}
+.story-deco {
+  position: absolute; top: 60px; right: 64px;
+  font-family: var(--serif); font-size: 280px; font-weight: 900;
+  color: rgba(255,255,255,0.015); letter-spacing: -.04em;
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.story-inner { max-width: 860px; position: relative; z-index: 2; }
+.story-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 80px;
+}
+.story-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.story-p {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.75; color: #888888;
+  margin-bottom: 48px;
+}
+.story-list {
+  font-family: var(--sans); font-weight: 300;
+  font-size: clamp(11px, 1.1vw, 14px);
+  letter-spacing: .22em; text-transform: uppercase;
+  color: #555555; line-height: 2.6;
+  margin-bottom: 56px;
+  padding-left: 44px; border-left: 1px solid var(--ash);
+}
+.story-mid {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(24px, 2.8vw, 44px);
+  line-height: 1.3; color: #cccccc;
+  margin-bottom: 48px;
+}
+.story-punch {
+  font-family: var(--serif); font-weight: 900; font-style: italic;
+  font-size: clamp(32px, 4vw, 64px);
+  line-height: 1.1; color: var(--gold);
+  margin-bottom: 80px;
+  padding-bottom: 80px; border-bottom: 1px solid var(--ash);
+}
+.story-end {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.75; color: #d0d0d0;
+  margin-bottom: 24px;
+}
+.story-close {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.75; color: #ffffff;
+}
+
+/* ── REVEAL ── */
+.rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
+.rv.in { opacity:1; transform:translateY(0); }
+.rv-d1 { transition-delay:.1s }
+.rv-d2 { transition-delay:.22s }
+.rv-d3 { transition-delay:.36s }
+
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .about-hero { padding:0 28px; }
+  .story { padding:100px 28px; }
+  .story-deco { display:none; }
+  .story-list { padding-left:24px; }
 }
 `;
 
@@ -144,6 +213,7 @@ export default function AboutPage() {
   const [expand, setExpand] = useState(false);
   const ringTarget          = useRef({ x: -100, y: -100 });
   const rafId               = useRef(null);
+  const revealEls           = useRef([]);
 
   /** Tracks mouse position for the dot cursor and lerps the ring cursor via RAF. */
   useEffect(() => {
@@ -164,6 +234,21 @@ export default function AboutPage() {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafId.current);
     };
+  }, []);
+
+  /** Observes registered elements and adds the `.in` class when they enter the viewport. */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); }),
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealEls.current.forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  /** Ref callback — registers an element for scroll-reveal observation. */
+  const reveal = useCallback(el => {
+    if (el && !revealEls.current.includes(el)) revealEls.current.push(el);
   }, []);
 
   const expandClass = (isExpanded) => isExpanded ? "expand" : "";
@@ -194,6 +279,44 @@ export default function AboutPage() {
           <p className="about-hero-sub">
             Built from the inside. For those who deserve better.
           </p>
+        </div>
+      </section>
+
+      {/* ──────── STORY ──────── */}
+      <section className="story">
+        <div className="story-deco" aria-hidden="true">MOH</div>
+        <div className="story-inner">
+
+          <div className="story-label rv" ref={reveal}>Our Story</div>
+
+          <p className="story-p rv" ref={reveal}>
+            We've sat inside the agencies. We've seen what happens behind the doors — when a client walks in with a dream and walks out with a template.
+          </p>
+
+          <p className="story-list rv rv-d1" ref={reveal}>
+            SEO package. Social media posting. Google Ads. Website. Done. Invoice sent.
+          </p>
+
+          <p className="story-p rv rv-d1" ref={reveal}>
+            Nobody asked what the brand actually needed. Nobody studied the audience. Nobody built a real strategy.
+          </p>
+
+          <p className="story-mid rv rv-d2" ref={reveal}>
+            Just a checklist. Sold as marketing.
+          </p>
+
+          <p className="story-punch rv" ref={reveal}>
+            That's not marketing. That's noise.
+          </p>
+
+          <p className="story-end rv rv-d1" ref={reveal}>
+            We started the MOH because real brands deserve real thinking. Not packages. Not templates.
+          </p>
+
+          <p className="story-close rv rv-d2" ref={reveal}>
+            A strategy built for you. Your audience. Your market. Your moment.
+          </p>
+
         </div>
       </section>
     </>
