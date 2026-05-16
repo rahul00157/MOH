@@ -6,8 +6,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 const G = `
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500&family=DM+Serif+Display:ital@0;1&display=swap');
 
+/* ── RESET ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
+/* ── VARIABLES ── */
 :root {
   --ink:       #030303;
   --deep:      #090909;
@@ -533,7 +535,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .foot-social a:hover { color: #ffffff; }
 
-/* ── REVEAL ANIMATIONS ── */
+/* ── ANIMATIONS ── */
 .rv {
   opacity: 0; transform: translateY(48px);
   transition: opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury);
@@ -544,7 +546,6 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .rv-d3 { transition-delay: .36s }
 .rv-d4 { transition-delay: .5s }
 
-/* ── SHIMMER ── */
 @keyframes shimmerGold {
   0%, 100% { color: var(--haze); text-shadow: none; }
   50% { color: #e8d9be; text-shadow: 0 0 24px rgba(232,217,190,.55); }
@@ -606,9 +607,18 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
+
+/** Navigation labels rendered in the navbar and footer nav list. */
 const NAV_ITEMS = ["Home", "About Us", "What We Do", "Work", "Contact"];
+
+/** Marquee labels cycling continuously in the ticker strip. */
 const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "Moving Image", "Editorial Direction", "Market Dominance", "Founder Branding", "Cultural Influence"];
 
+/**
+ * Featured case study entries shown in the work grid.
+ * Each entry includes display text, background gradient, location/year metadata,
+ * and a key performance stat rendered as a card overlay.
+ */
 const WORKS = [
   {
     tag: "Performance · eCommerce · USA",
@@ -633,6 +643,7 @@ const WORKS = [
   },
 ];
 
+/** Philosophy pillars displayed in the three-column philosophy section. */
 const PHILOS = [
   {
     word: "Attention",
@@ -651,23 +662,32 @@ const PHILOS = [
 /* ─────────────────────────────────────────────
    COMPONENT
 ───────────────────────────────────────────── */
-export default function TheMOHHomepage() {
-  const [stuck, setStuck]           = useState(false);
-  const [dot, setDot]               = useState({ x: -100, y: -100 });
-  const [ring, setRing]             = useState({ x: -100, y: -100 });
-  const [expand, setExpand]         = useState(false);
-  const ringTarget                  = useRef({ x: -100, y: -100 });
-  const raf                         = useRef(null);
-  const revRefs                     = useRef([]);
 
-  // Scroll stuck
+/**
+ * TheMOHHomepage — the single-page homepage for the MOH media and growth agency.
+ *
+ * Responsibilities:
+ *  - Custom dual-layer cursor (dot snaps instantly, ring lerps via RAF)
+ *  - Sticky navbar that gains blur/background after 70px of scroll
+ *  - Scroll-reveal via IntersectionObserver applied to elements registered through `reveal`
+ */
+export default function TheMOHHomepage() {
+  const [stuck, setStuck]       = useState(false);
+  const [dot, setDot]           = useState({ x: -100, y: -100 });
+  const [ring, setRing]         = useState({ x: -100, y: -100 });
+  const [expand, setExpand]     = useState(false);
+  const ringTarget              = useRef({ x: -100, y: -100 });
+  const rafId                   = useRef(null);
+  const revealEls               = useRef([]);
+
+  /** Sets `stuck` when the page has scrolled past the navbar threshold. */
   useEffect(() => {
-    const h = () => setStuck(window.scrollY > 70);
-    window.addEventListener("scroll", h, { passive: true });
-    return () => window.removeEventListener("scroll", h);
+    const handleScroll = () => setStuck(window.scrollY > 70);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Cursor
+  /** Tracks mouse position for the dot cursor and lerps the ring cursor via RAF. */
   useEffect(() => {
     const onMove = (e) => {
       setDot({ x: e.clientX, y: e.clientY });
@@ -679,32 +699,38 @@ export default function TheMOHHomepage() {
         x: prev.x + (ringTarget.current.x - prev.x) * 0.11,
         y: prev.y + (ringTarget.current.y - prev.y) * 0.11,
       }));
-      raf.current = requestAnimationFrame(lerp);
+      rafId.current = requestAnimationFrame(lerp);
     };
-    raf.current = requestAnimationFrame(lerp);
+    rafId.current = requestAnimationFrame(lerp);
     return () => {
       window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf.current);
+      cancelAnimationFrame(rafId.current);
     };
   }, []);
 
-  // Scroll reveal
+  /** Observes registered elements and adds the `.in` class when they enter the viewport. */
   useEffect(() => {
-    const obs = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); }),
       { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
-    revRefs.current.forEach(el => el && obs.observe(el));
-    return () => obs.disconnect();
+    revealEls.current.forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
-  const rv = useCallback(el => {
-    if (el && !revRefs.current.includes(el)) revRefs.current.push(el);
+  /** Ref callback — registers an element for scroll-reveal observation. */
+  const reveal = useCallback(el => {
+    if (el && !revealEls.current.includes(el)) revealEls.current.push(el);
   }, []);
 
-  const cx = (expand) => expand ? "expand" : "";
-  const ho = () => setExpand(true);
-  const hl = () => setExpand(false);
+  /** Returns the CSS class for the cursor ring expand state. */
+  const expandClass = (isExpanded) => isExpanded ? "expand" : "";
+
+  /** Triggers cursor expand state on interactive element hover. */
+  const onEnter = () => setExpand(true);
+
+  /** Resets cursor expand state when leaving an interactive element. */
+  const onLeave = () => setExpand(false);
 
   return (
     <>
@@ -712,23 +738,23 @@ export default function TheMOHHomepage() {
 
       {/* Cursor */}
       <div id="cur-dot" className={expand ? "big" : ""} style={{ left: dot.x, top: dot.y }} />
-      <div id="cur-ring" className={cx(expand)} style={{ left: ring.x, top: ring.y }} />
+      <div id="cur-ring" className={expandClass(expand)} style={{ left: ring.x, top: ring.y }} />
       <div className="grain" aria-hidden="true" />
 
       {/* ──────── NAVBAR ──────── */}
       <nav className={`nav ${stuck ? "stuck" : ""}`}>
-        <a href="#" className="nav-brand" onMouseEnter={ho} onMouseLeave={hl}>
+        <a href="#" className="nav-brand" onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <span className="nav-brand-the">the</span>
           <span className="nav-brand-moh">MOH</span>
         </a>
         <ul className="nav-links">
           {NAV_ITEMS.map(n => (
             <li key={n}>
-              <a href="#" className="nav-link" onMouseEnter={ho} onMouseLeave={hl}>{n}</a>
+              <a href="#" className="nav-link" onMouseEnter={onEnter} onMouseLeave={onLeave}>{n}</a>
             </li>
           ))}
         </ul>
-        <a href="#" className="nav-btn" onMouseEnter={ho} onMouseLeave={hl}>Let's Talk</a>
+        <a href="#" className="nav-btn" onMouseEnter={onEnter} onMouseLeave={onLeave}>Let's Talk</a>
       </nav>
 
       {/* ──────── HERO ──────── */}
@@ -766,8 +792,8 @@ export default function TheMOHHomepage() {
               the MOH — Media & Growth
             </div>
             <div className="hero-ctas">
-              <a href="#" className="btn-p" onMouseEnter={ho} onMouseLeave={hl}>See Our Work</a>
-              <a href="#" className="btn-g" onMouseEnter={ho} onMouseLeave={hl}>Our Studio</a>
+              <a href="#" className="btn-p" onMouseEnter={onEnter} onMouseLeave={onLeave}>See Our Work</a>
+              <a href="#" className="btn-g" onMouseEnter={onEnter} onMouseLeave={onLeave}>Our Studio</a>
             </div>
           </div>
         </div>
@@ -790,8 +816,8 @@ export default function TheMOHHomepage() {
       {/* ──────── SERVICES ──────── */}
       <section className="svc">
         <div className="svc-head">
-          <div className="svc-label rv" ref={rv}>What We Do</div>
-          <h2 className="svc-title rv rv-d1" ref={rv}>Our<br /><em>disciplines.</em></h2>
+          <div className="svc-label rv" ref={reveal}>What We Do</div>
+          <h2 className="svc-title rv rv-d1" ref={reveal}>Our<br /><em>disciplines.</em></h2>
         </div>
         <div className="svc-grid">
           {[
@@ -816,11 +842,11 @@ export default function TheMOHHomepage() {
               desc: "We turn founders into voices their market follows. Authority built through narrative, presence, and consistent signal.",
             },
           ].map((s, i) => (
-            <div key={s.num} className={`svc-card rv rv-d${i % 2 + 1}`} ref={rv}>
+            <div key={s.num} className={`svc-card rv rv-d${i % 2 + 1}`} ref={reveal}>
               <span className="svc-num">{s.num}</span>
               <h3 className="svc-card-title">{s.title}</h3>
               <p className="svc-desc">{s.desc}</p>
-              <a href="#" className="svc-arrow" onMouseEnter={ho} onMouseLeave={hl}>Explore</a>
+              <a href="#" className="svc-arrow" onMouseEnter={onEnter} onMouseLeave={onLeave}>Explore</a>
             </div>
           ))}
         </div>
@@ -830,9 +856,9 @@ export default function TheMOHHomepage() {
       <section className="stmt">
         <div className="stmt-deco" aria-hidden="true">MOH</div>
         <div className="stmt-inner">
-          <div className="stmt-label rv" ref={rv}>Manifesto</div>
+          <div className="stmt-label rv" ref={reveal}>Manifesto</div>
 
-          <p className="stmt-copy rv rv-d1" ref={rv}>
+          <p className="stmt-copy rv rv-d1" ref={reveal}>
             Modern brands no longer<br />
             compete for <em><span className="shimmer-gold">visibility.</span></em><br />
             They compete for{" "}
@@ -840,7 +866,7 @@ export default function TheMOHHomepage() {
             <em><span className="shimmer-white">influence.</span></em>
           </p>
 
-          <div className="stmt-foot rv rv-d2" ref={rv}>
+          <div className="stmt-foot rv rv-d2" ref={reveal}>
             <div className="stmt-foot-text">
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#ffffff', marginBottom:'20px'}}>You didn't build a business. You built a belief.</p>
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#888888', marginBottom:'20px'}}>But out there nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
@@ -853,7 +879,7 @@ export default function TheMOHHomepage() {
 
       {/* ──────── FEATURED WORK ──────── */}
       <section className="work">
-        <div className="work-head rv" ref={rv}>
+        <div className="work-head rv" ref={reveal}>
           <h2 className="work-title">
             Selected
             <span>Work</span>
@@ -866,9 +892,9 @@ export default function TheMOHHomepage() {
             <div
               key={i}
               className="wcard rv"
-              ref={rv}
+              ref={reveal}
               style={{ transitionDelay: `${i * 0.12}s` }}
-              onMouseEnter={ho} onMouseLeave={hl}
+              onMouseEnter={onEnter} onMouseLeave={onLeave}
             >
               <div className="wcard-inner">
                 <div className="wcard-bg" style={{ background: w.bg }} />
@@ -899,9 +925,9 @@ export default function TheMOHHomepage() {
           <div
             key={i}
             className="philo-card rv"
-            ref={rv}
+            ref={reveal}
             style={{ transitionDelay: `${i * 0.14}s` }}
-            onMouseEnter={ho} onMouseLeave={hl}
+            onMouseEnter={onEnter} onMouseLeave={onLeave}
           >
             <div className="philo-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</div>
             <div className="philo-icon" />
@@ -914,27 +940,27 @@ export default function TheMOHHomepage() {
       {/* ──────── FOOTER ──────── */}
       <footer className="foot">
         <div className="foot-top">
-          <div className="foot-brand rv" ref={rv}>
+          <div className="foot-brand rv" ref={reveal}>
             <div className="foot-the">the</div>
             <div className="foot-moh">MOH</div>
             <div className="foot-line">Media & Growth Company — India</div>
           </div>
           <div className="foot-divider" />
-          <ul className="foot-nav rv rv-d1" ref={rv}>
+          <ul className="foot-nav rv rv-d1" ref={reveal}>
             {[...NAV_ITEMS, "Let's Talk"].map(n => (
               <li key={n}>
-                <a href="#" onMouseEnter={ho} onMouseLeave={hl}>{n}</a>
+                <a href="#" onMouseEnter={onEnter} onMouseLeave={onLeave}>{n}</a>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="foot-bottom rv" ref={rv}>
+        <div className="foot-bottom rv" ref={reveal}>
           <span className="foot-copy">© 2025 the MOH. All rights reserved.</span>
           <div className="foot-social">
-            <a href="https://www.linkedin.com/company/the-moh-media" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>LinkedIn</a>
-            <a href="https://www.instagram.com/themohmedia/" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>Instagram</a>
-            <a href="https://x.com/themohmedia" target="_blank" rel="noopener noreferrer" onMouseEnter={ho} onMouseLeave={hl}>X (Twitter)</a>
+            <a href="https://www.linkedin.com/company/the-moh-media" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>LinkedIn</a>
+            <a href="https://www.instagram.com/themohmedia/" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>Instagram</a>
+            <a href="https://x.com/themohmedia" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>X (Twitter)</a>
           </div>
         </div>
       </footer>
