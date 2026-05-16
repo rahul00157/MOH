@@ -330,7 +330,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .stmt-copy .accent { color: var(--gold-pale); }
 .stmt-foot {
   display: flex; align-items: center; justify-content: space-between;
-  margin-top: 100px; padding-top: 32px; border-top: 1px solid var(--ash);
+  margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--ash);
   gap: 40px; flex-wrap: wrap;
 }
 .stmt-foot-text {
@@ -559,6 +559,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 @keyframes highlightPulse {
   0%,100%{ color:#cc2200; }
   50%{ color:#ff4422; }
+}
+@keyframes mohPulse {
+  0%,100%{ opacity:0.08; }
+  50%{ opacity:0.9; }
 }
 
 /* ── MOBILE ── */
@@ -832,7 +836,7 @@ export default function TheMOHHomepage() {
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, color:'#888888', marginBottom:'20px'}}>But out there nobody's paying attention. Your competitor isn't smarter. Their product isn't better. They're just louder.</p>
               <p style={{fontFamily:'var(--serif)', fontSize:'clamp(13px,1.4vw,18px)', lineHeight:1.6, fontStyle:'italic', fontWeight:700, color:'#ffffff', marginBottom:'20px'}}>We <span style={{background:'rgba(255,255,255,0.12)', padding:'2px 8px'}}>engineer obsession</span>. So when your market sees you they <span style={{background:'rgba(255,255,255,0.12)', padding:'2px 8px'}}>can't look away</span>.</p>
             </div>
-            <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,180px)', fontWeight:900, color:'transparent', WebkitTextStroke:'1px rgba(255,255,255,0.06)', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'strokePulse 4s ease-in-out infinite'}} aria-hidden="true">MOH</div>
+            <div style={{fontFamily:'var(--serif)', fontSize:'clamp(80px,12vw,200px)', fontWeight:900, color:'#ffffff', letterSpacing:'-0.04em', lineHeight:1, userSelect:'none', animation:'mohPulse 2.5s ease-in-out infinite'}} aria-hidden="true">MOH</div>
           </div>
         </div>
       </section>
