@@ -750,7 +750,7 @@ export default function TheMOHHomepage() {
 
         <div style={{ position:"relative", zIndex:3, width:"100%", maxWidth:1400, paddingTop:"120px" }}>
           <div className="hero-eyebrow">
-            Mumbai · Delhi · Bengaluru — Modern Indian Media Institution
+            Media & Growth Company
           </div>
 
           <h1 className="hero-hl">
