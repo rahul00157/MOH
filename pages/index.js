@@ -436,6 +436,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   width: 60px; height: 1px; background: rgba(184,160,122,0.2);
   pointer-events: none;
 }
+.wcard-stats { position:absolute; top:50%; left:44px; transform:translateY(-50%); z-index:2; }
+.wcard-stat-num { font-family:var(--serif); font-size:clamp(52px,7vw,96px); font-weight:900; color:#ffffff; line-height:1; letter-spacing:-0.03em; }
+.wcard-stat-label { font-family:var(--sans); font-size:11px; font-weight:400; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-top:8px; }
+.wcard-stat-sub { font-family:var(--sans); font-size:10px; font-weight:300; letter-spacing:0.25em; text-transform:uppercase; color:#666; margin-top:6px; }
 
 /* ── PHILOSOPHY ── */
 .philo {
@@ -865,6 +869,11 @@ export default function TheMOHHomepage() {
               <div className="wcard-inner">
                 <div className="wcard-bg" style={{ background: w.bg }} />
                 <div className="wcard-overlay" />
+                <div className="wcard-stats">
+                  <div className="wcard-stat-num">{w.stats.num}</div>
+                  <div className="wcard-stat-label">{w.stats.label}</div>
+                  <div className="wcard-stat-sub">{w.stats.sub}</div>
+                </div>
                 <div className="wcard-number">{String(i + 1).padStart(2, "0")}</div>
                 <div className="wcard-line" />
                 <div className="wcard-body">
