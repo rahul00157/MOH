@@ -364,16 +364,15 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   letter-spacing: .35em; text-transform: uppercase; color: #888888;
 }
 .work-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
   gap: 3px;
 }
 .wcard {
   position: relative; overflow: hidden; background: var(--soot);
   cursor: none;
 }
-.wcard:first-child { grid-row: span 2; min-height: 740px; }
+.wcard:first-child { min-height: 520px; }
 .wcard-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
@@ -381,8 +380,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   filter: grayscale(100%) brightness(.38);
 }
 .wcard:hover .wcard-bg { transform: scale(1.07); filter: grayscale(55%) brightness(.52); }
-.wcard-inner { position:relative; min-height:360px; height:100%; }
-.wcard:first-child .wcard-inner { min-height:740px; }
+.wcard-inner { position:relative; min-height:520px; height:100%; }
+.wcard:first-child .wcard-inner { min-height:520px; }
 .wcard-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.1) 55%, transparent 100%);
