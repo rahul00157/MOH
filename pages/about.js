@@ -145,41 +145,46 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .story-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 .story-p {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 32px);
-  line-height: 1.75; color: #888888;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.7; color: #e0e0e0;
   margin-bottom: 48px;
 }
 .story-list {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(11px, 1.1vw, 14px);
-  letter-spacing: .22em; text-transform: uppercase;
-  color: #555555; line-height: 2.6;
+  font-size: clamp(13px, 1.4vw, 18px);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #666666; line-height: 2.4;
   margin-bottom: 56px;
-  padding-left: 44px; border-left: 1px solid var(--ash);
+  padding-left: 20px; border-left: 2px solid #333333;
 }
 .story-mid {
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(24px, 2.8vw, 44px);
-  line-height: 1.3; color: #cccccc;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.7; color: #ffffff;
   margin-bottom: 48px;
 }
 .story-punch {
-  font-family: var(--serif); font-weight: 900; font-style: italic;
-  font-size: clamp(32px, 4vw, 64px);
-  line-height: 1.1; color: var(--gold);
+  font-family: var(--serif); font-weight: 700; font-style: italic;
+  font-size: clamp(22px, 2.5vw, 36px);
+  line-height: 1.7; color: #ffffff;
   margin-bottom: 80px;
   padding-bottom: 80px; border-bottom: 1px solid var(--ash);
+  animation: noisePulse 2.5s ease-in-out infinite;
 }
 .story-end {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 32px);
-  line-height: 1.75; color: #d0d0d0;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.7; color: #e0e0e0;
   margin-bottom: 24px;
 }
 .story-close {
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(20px, 2.2vw, 32px);
-  line-height: 1.75; color: #ffffff;
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.7; color: #e0e0e0;
+}
+@keyframes noisePulse {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(-4px); }
 }
 
 /* ── REVEAL ── */
