@@ -286,7 +286,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .beliefs-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 .beliefs-list { width: 100%; }
 .beliefs-item {
-  display: flex; align-items: center; gap: 60px;
+  display: flex; align-items: flex-start; gap: 60px;
   padding: 32px 0;
   border-bottom: 1px solid #1e1e1e;
 }
@@ -368,9 +368,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
  * Navbar is rendered via the shared Navbar component with activePage="About Us".
  */
 export default function AboutPage() {
-  const [dot, setDot]       = useState({ x: -100, y: -100 });
-  const [ring, setRing]     = useState({ x: -100, y: -100 });
-  const [expand, setExpand] = useState(false);
+  const [dot, setDot]         = useState({ x: -100, y: -100 });
+  const [ring, setRing]       = useState({ x: -100, y: -100 });
+  const [expand, setExpand]   = useState(false);
+  const [openBelief, setOpenBelief] = useState(null);
   const ringTarget          = useRef({ x: -100, y: -100 });
   const rafId               = useRef(null);
   const revealEls           = useRef([]);
@@ -497,17 +498,47 @@ export default function AboutPage() {
 
           <div className="beliefs-item rv" ref={reveal}>
             <div className="beliefs-num">01</div>
-            <div className="beliefs-statement">Every brand is different. Your strategy should be too. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
+            <div>
+              <div className="beliefs-statement">
+                Every brand is different. Your strategy should be too.{' '}
+                <span onClick={() => setOpenBelief(openBelief === 0 ? null : 0)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+              </div>
+              <div style={{ maxHeight: openBelief === 0 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
+                  We start with a deep discovery — your audience, your competitors, your market position. No two brands get the same strategy.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="beliefs-item rv rv-d1" ref={reveal}>
             <div className="beliefs-num">02</div>
-            <div className="beliefs-statement">Real marketing is not a checklist. It is a system. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
+            <div>
+              <div className="beliefs-statement">
+                Real marketing is not a checklist. It is a system.{' '}
+                <span onClick={() => setOpenBelief(openBelief === 1 ? null : 1)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+              </div>
+              <div style={{ maxHeight: openBelief === 1 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
+                  We build performance systems — paid media, content, SEO — all connected to one goal: measurable growth.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="beliefs-item rv rv-d2" ref={reveal}>
             <div className="beliefs-num">03</div>
-            <div className="beliefs-statement">We never run ads before we understand your audience. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
+            <div>
+              <div className="beliefs-statement">
+                We never run ads before we understand your audience.{' '}
+                <span onClick={() => setOpenBelief(openBelief === 2 ? null : 2)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+              </div>
+              <div style={{ maxHeight: openBelief === 2 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
+                  We run a full audience audit before spending a single rupee. We study who they are, what they scroll, and what makes them buy.
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
