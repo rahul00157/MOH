@@ -265,6 +265,41 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-bottom: 20px;
 }
 
+/* ── CTA ── */
+.cta {
+  padding: 180px 64px;
+  border-top: 1px solid var(--ash);
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.cta-heading {
+  font-family: var(--serif); font-weight: 900;
+  font-size: clamp(36px, 5.5vw, 88px);
+  line-height: 1.05; letter-spacing: -.03em;
+  color: var(--white); max-width: 900px;
+  margin-bottom: 32px;
+}
+.cta-heading em { font-style: italic; color: var(--haze); }
+.cta-sub {
+  font-family: var(--serif); font-size: clamp(16px, 1.8vw, 26px);
+  font-weight: 400; font-style: italic;
+  color: var(--mist); margin-bottom: 64px;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--sans); font-size: 11px; font-weight: 400;
+  letter-spacing: .35em; text-transform: uppercase; text-decoration: none;
+  color: var(--ink); background: var(--white);
+  padding: 20px 52px;
+  border: 1px solid var(--white);
+  transition: background .35s var(--ease-luxury), color .35s var(--ease-luxury), border-color .35s var(--ease-luxury);
+}
+.cta-btn:hover {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
 /* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
 .rv.in { opacity:1; transform:translateY(0); }
@@ -282,6 +317,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .team-grid { grid-template-columns: 1fr; gap:28px; }
   .beliefs { padding:100px 28px; }
   .beliefs-item { padding:40px 0; }
+  .cta { padding:120px 28px; }
 }
 `;
 
@@ -458,6 +494,23 @@ export default function AboutPage() {
           </div>
 
         </div>
+      </section>
+
+      {/* ──────── CTA ──────── */}
+      <section className="cta">
+        <h2 className="cta-heading rv" ref={reveal}>
+          Ready to be <em>impossible</em> to ignore?
+        </h2>
+        <p className="cta-sub rv rv-d1" ref={reveal}>Let's build something real.</p>
+        <a
+          className="cta-btn rv rv-d2"
+          href="/contact"
+          ref={reveal}
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+        >
+          Let's Talk
+        </a>
       </section>
     </>
   );
