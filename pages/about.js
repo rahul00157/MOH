@@ -187,6 +187,54 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   50%       { opacity: 1;   transform: translateY(-4px); }
 }
 
+/* ── TEAM ── */
+.team {
+  padding: 160px 64px;
+  border-top: 1px solid var(--ash);
+}
+.team-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 80px;
+}
+.team-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.team-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; max-width: 1000px;
+}
+.team-card {
+  background: var(--soot);
+  border: 1px solid var(--ash);
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 28px;
+  transition: border-color .4s var(--ease-luxury);
+}
+.team-card:hover { border-color: var(--gold-dim); }
+.team-photo {
+  width: 100%; aspect-ratio: 4/3;
+  background: var(--slate);
+  display: flex; align-items: center; justify-content: center;
+}
+.team-photo-inner {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--smoke);
+}
+.team-info { display: flex; flex-direction: column; gap: 8px; }
+.team-name {
+  font-family: var(--serif); font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700; color: var(--white); letter-spacing: -.01em;
+}
+.team-role {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .4em; text-transform: uppercase; color: var(--gold);
+}
+.team-bio {
+  font-family: var(--sans); font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 300; color: var(--haze); line-height: 1.7;
+  margin-top: 4px;
+}
+
 /* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
 .rv.in { opacity:1; transform:translateY(0); }
@@ -200,6 +248,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .story { padding:100px 28px; }
   .story-deco { display:none; }
   .story-list { padding-left:24px; }
+  .team { padding:100px 28px; }
+  .team-grid { grid-template-columns: 1fr; gap:28px; }
 }
 `;
 
@@ -321,6 +371,36 @@ export default function AboutPage() {
           <p className="story-close rv rv-d2" ref={reveal}>
             A strategy built for you. Your audience. Your market. Your moment.
           </p>
+
+        </div>
+      </section>
+
+      {/* ──────── TEAM ──────── */}
+      <section className="team">
+        <div className="team-label rv" ref={reveal}>The People</div>
+        <div className="team-grid">
+
+          <div className="team-card rv" ref={reveal}>
+            <div className="team-photo" aria-hidden="true">
+              <div className="team-photo-inner" />
+            </div>
+            <div className="team-info">
+              <div className="team-name">Rahul Gupta</div>
+              <div className="team-role">Founder &amp; CEO</div>
+              <div className="team-bio">The strategy. The vision. The obsession.</div>
+            </div>
+          </div>
+
+          <div className="team-card rv rv-d1" ref={reveal}>
+            <div className="team-photo" aria-hidden="true">
+              <div className="team-photo-inner" />
+            </div>
+            <div className="team-info">
+              <div className="team-name">Mansi Rajpoot</div>
+              <div className="team-role">Co-Founder &amp; COO</div>
+              <div className="team-bio">The operations. The creative. The execution.</div>
+            </div>
+          </div>
 
         </div>
       </section>
