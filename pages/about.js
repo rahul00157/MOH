@@ -223,6 +223,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   0%, 100% { color: var(--white); text-shadow: none; }
   50%       { color: var(--gold-pale); text-shadow: 0 0 40px rgba(184,160,122,0.5), 0 0 80px rgba(184,160,122,0.25); }
 }
+@keyframes howPulse {
+  0%, 100% { background: rgba(184,160,122,0.08); color: #b8a07a; }
+  50%       { background: rgba(184,160,122,0.22); color: #e8d9be; }
+}
 
 /* ── TEAM ── */
 .team {
@@ -501,7 +505,7 @@ export default function AboutPage() {
             <div>
               <div className="beliefs-statement">
                 Every brand is different. Your strategy should be too.{' '}
-                <span onClick={() => setOpenBelief(openBelief === 0 ? null : 0)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+                <span onClick={() => setOpenBelief(openBelief === 0 ? null : 0)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted', animation: 'howPulse 2s ease-in-out infinite', background: 'rgba(184,160,122,0.12)', padding: '2px 8px', borderRadius: '2px' }}>— How?</span>
               </div>
               <div style={{ maxHeight: openBelief === 0 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
@@ -516,7 +520,7 @@ export default function AboutPage() {
             <div>
               <div className="beliefs-statement">
                 Real marketing is not a checklist. It is a system.{' '}
-                <span onClick={() => setOpenBelief(openBelief === 1 ? null : 1)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+                <span onClick={() => setOpenBelief(openBelief === 1 ? null : 1)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted', animation: 'howPulse 2s ease-in-out infinite', background: 'rgba(184,160,122,0.12)', padding: '2px 8px', borderRadius: '2px' }}>— How?</span>
               </div>
               <div style={{ maxHeight: openBelief === 1 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
@@ -531,7 +535,7 @@ export default function AboutPage() {
             <div>
               <div className="beliefs-statement">
                 We never run ads before we understand your audience.{' '}
-                <span onClick={() => setOpenBelief(openBelief === 2 ? null : 2)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }}>— How?</span>
+                <span onClick={() => setOpenBelief(openBelief === 2 ? null : 2)} style={{ color: 'var(--gold)', fontStyle: 'italic', cursor: 'pointer', textDecorationLine: 'underline', textDecorationStyle: 'dotted', animation: 'howPulse 2s ease-in-out infinite', background: 'rgba(184,160,122,0.12)', padding: '2px 8px', borderRadius: '2px' }}>— How?</span>
               </div>
               <div style={{ maxHeight: openBelief === 2 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
