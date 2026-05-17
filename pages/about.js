@@ -266,6 +266,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .team-name {
   font-family: var(--serif); font-size: clamp(20px, 2vw, 28px);
   font-weight: 700; color: var(--white); letter-spacing: -.01em;
+  margin-top: 0; margin-bottom: 4px;
 }
 .team-role {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
@@ -350,10 +351,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .story { padding:100px 28px; }
   .story-deco { display:none; }
   .story-list { padding-left:24px; }
-  .team { padding:60px 28px 100px; }
+  .team { padding:20px 28px 100px; }
   .team-grid { grid-template-columns: 1fr; gap:60px; }
   .team-card { max-width: 100%; }
-  .beliefs { padding:60px 28px 100px; }
+  .beliefs { padding:60px 28px 20px; }
   .beliefs-item { gap:32px; padding:24px 0; }
   .cta { padding:120px 28px; }
 }
@@ -551,25 +552,25 @@ export default function AboutPage() {
         <div className="team-grid">
 
           <div className="team-card rv" ref={reveal}>
-            <div className="team-photo" aria-hidden="true">
-              <div className="team-photo-inner" />
-            </div>
-            <p className="team-tagline">The strategy. The vision. The obsession.</p>
             <div className="team-info">
               <div className="team-name">Rahul Gupta</div>
               <div className="team-role">Founder &amp; CEO</div>
             </div>
-          </div>
-
-          <div className="team-card rv rv-d1" ref={reveal}>
             <div className="team-photo" aria-hidden="true">
               <div className="team-photo-inner" />
             </div>
-            <p className="team-tagline">The operations. The creative. The execution.</p>
+            <p className="team-tagline">The strategy. The vision. The obsession.</p>
+          </div>
+
+          <div className="team-card rv rv-d1" ref={reveal}>
             <div className="team-info">
               <div className="team-name">Mansi Rajpoot</div>
               <div className="team-role">Co-Founder &amp; COO</div>
             </div>
+            <div className="team-photo" aria-hidden="true">
+              <div className="team-photo-inner" />
+            </div>
+            <p className="team-tagline">The operations. The creative. The execution.</p>
           </div>
 
         </div>
