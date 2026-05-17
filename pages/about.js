@@ -291,15 +291,15 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   border-bottom: 1px solid #1e1e1e;
 }
 .beliefs-statement {
-  font-family: var(--serif); font-weight: 400;
-  font-size: clamp(22px, 2.8vw, 44px);
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(28px, 3.5vw, 56px);
   line-height: 1.2; color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 .beliefs-num {
-  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  font-family: var(--sans); font-size: 11px; font-weight: 300;
   letter-spacing: .4em; color: var(--gold);
-  min-width: 40px;
+  min-width: 50px;
 }
 
 /* ── CTA ── */
