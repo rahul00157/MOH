@@ -211,10 +211,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .story-origin-emphasis {
   display: inline-block;
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(16px, 1.8vw, 26px);
+  font-size: clamp(18px, 2vw, 30px);
   color: #e8d9be; line-height: 1.4;
-  background: rgba(184,160,122,0.08);
-  padding: 12px 20px;
   margin-top: 12px;
 }
 @keyframes fadeIn {
@@ -465,18 +463,17 @@ export default function AboutPage() {
             <div className="story-box-line"><span className="arrow">→</span>Google Ads? Running.</div>
             <div className="story-box-line"><span className="arrow">→</span>Website? Built.</div>
             <div className="story-box-line"><span className="arrow">→</span>Invoice sent. Job done.</div>
-            <hr style={{ width: '100%', height: '1px', background: '#b8a07a', border: 'none', margin: '24px 0' }} />
             <p style={{ fontSize: 'clamp(18px,2vw,28px)', color: '#ffffff', fontWeight: 700, borderLeft: '3px solid #cc2200', paddingLeft: '20px' }}>
               This is not marketing. These are just checkpoints.
             </p>
           </div>
 
-          <p className="story-verdict rv" ref={reveal}>
-            Just a checklist. Sold as marketing.
-          </p>
-
           <p className="story-question rv rv-d1" ref={reveal}>
             Nobody asked what the brand actually needed. Who is their audience? What will make them stop scrolling?
+          </p>
+
+          <p className="story-verdict rv" ref={reveal}>
+            Just a checklist. Sold as marketing.
           </p>
 
           <p className="story-noise rv" ref={reveal}>
