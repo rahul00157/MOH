@@ -166,16 +166,13 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-bottom: 56px;
 }
 .story-box {
-  background: var(--soot);
-  border-left: 3px solid var(--gold);
-  padding: 40px 44px;
   margin-bottom: 56px;
-  display: flex; flex-direction: column; gap: 20px;
+  display: flex; flex-direction: column; gap: 16px;
 }
 .story-box-line {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(14px, 1.4vw, 18px);
-  color: var(--pearl); line-height: 1.5;
+  font-size: clamp(15px, 1.6vw, 22px);
+  color: #cccccc; line-height: 1.6;
   display: flex; align-items: baseline; gap: 12px;
   opacity: 0;
 }
@@ -209,6 +206,16 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(16px, 1.8vw, 24px);
   color: var(--gold); line-height: 1.8;
+  margin-bottom: 12px;
+}
+.story-origin-emphasis {
+  display: inline-block;
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 32px);
+  color: #e8d9be; line-height: 1.4;
+  background: rgba(184,160,122,0.08);
+  padding: 12px 20px;
+  margin-top: 12px;
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateX(-10px); }
@@ -473,8 +480,11 @@ export default function AboutPage() {
           </p>
 
           <p className="story-origin rv rv-d1" ref={reveal}>
-            We started the MOH because real brands deserve real thinking. Not packages. Not templates. A system built for you — your audience, your market, your moment.
+            We started the MOH because real brands deserve real thinking. Not packages. Not templates. A system built for you —
           </p>
+          <div className="story-origin-emphasis rv rv-d2" ref={reveal}>
+            your audience, your market, your moment.
+          </div>
 
         </div>
       </section>
