@@ -235,6 +235,36 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-top: 4px;
 }
 
+/* ── BELIEFS ── */
+.beliefs {
+  padding: 160px 64px;
+  border-top: 1px solid var(--ash);
+}
+.beliefs-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 80px;
+}
+.beliefs-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.beliefs-list { max-width: 1000px; }
+.beliefs-item {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.beliefs-item:first-child { border-top: 1px solid var(--gold-dim); }
+.beliefs-statement {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(24px, 3vw, 48px);
+  line-height: 1.25; color: var(--white);
+  letter-spacing: -.02em;
+}
+.beliefs-num {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .4em; color: var(--gold);
+  margin-bottom: 20px;
+}
+
 /* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
 .rv.in { opacity:1; transform:translateY(0); }
@@ -250,6 +280,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .story-list { padding-left:24px; }
   .team { padding:100px 28px; }
   .team-grid { grid-template-columns: 1fr; gap:28px; }
+  .beliefs { padding:100px 28px; }
+  .beliefs-item { padding:40px 0; }
 }
 `;
 
@@ -371,6 +403,29 @@ export default function AboutPage() {
           <p className="story-close rv rv-d2" ref={reveal}>
             A strategy built for you. Your audience. Your market. Your moment.
           </p>
+
+        </div>
+      </section>
+
+      {/* ──────── BELIEFS ──────── */}
+      <section className="beliefs">
+        <div className="beliefs-label rv" ref={reveal}>What We Believe</div>
+        <div className="beliefs-list">
+
+          <div className="beliefs-item rv" ref={reveal}>
+            <div className="beliefs-num">01</div>
+            <div className="beliefs-statement">Every brand is different. Your strategy should be too.</div>
+          </div>
+
+          <div className="beliefs-item rv rv-d1" ref={reveal}>
+            <div className="beliefs-num">02</div>
+            <div className="beliefs-statement">Real marketing is not a checklist. It is a system.</div>
+          </div>
+
+          <div className="beliefs-item rv rv-d2" ref={reveal}>
+            <div className="beliefs-num">03</div>
+            <div className="beliefs-statement">We never run ads before we understand your audience.</div>
+          </div>
 
         </div>
       </section>
