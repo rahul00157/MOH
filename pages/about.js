@@ -153,48 +153,70 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-bottom: 80px;
 }
 .story-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
-.story-p {
-  font-family: var(--serif); font-weight: 400;
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: 1.7; color: #e0e0e0;
-  margin-bottom: 48px;
+.story-hook {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(28px, 3vw, 48px);
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 32px;
 }
-.story-list {
+.story-intro {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(13px, 1.4vw, 18px);
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: #666666; line-height: 2.4;
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: #aaaaaa; line-height: 1.7;
   margin-bottom: 56px;
-  padding-left: 20px; border-left: 2px solid #333333;
 }
-.story-mid {
+.story-box {
+  background: var(--soot);
+  border-left: 3px solid var(--gold);
+  padding: 40px 44px;
+  margin-bottom: 56px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.story-box-line {
+  font-family: var(--sans); font-weight: 300;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--pearl); line-height: 1.5;
+  display: flex; align-items: baseline; gap: 12px;
+  opacity: 0;
+}
+.story-box-line .arrow { color: var(--gold); flex-shrink: 0; }
+.story-box.in .story-box-line { animation: fadeIn .5s ease forwards; }
+.story-box.in .story-box-line:nth-child(1) { animation-delay: .15s; }
+.story-box.in .story-box-line:nth-child(2) { animation-delay: .45s; }
+.story-box.in .story-box-line:nth-child(3) { animation-delay: .75s; }
+.story-box.in .story-box-line:nth-child(4) { animation-delay: 1.05s; }
+.story-box.in .story-box-line:nth-child(5) { animation-delay: 1.35s; }
+.story-verdict {
   font-family: var(--serif); font-weight: 700;
   font-size: clamp(20px, 2.2vw, 32px);
-  line-height: 1.7; color: #ffffff;
-  margin-bottom: 48px;
+  color: var(--white); line-height: 1.3;
+  margin-bottom: 32px;
 }
-.story-punch {
+.story-question {
+  font-family: var(--sans); font-weight: 300;
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: #aaaaaa; line-height: 1.7;
+  margin-bottom: 56px;
+}
+.story-noise {
   font-family: var(--serif); font-weight: 700; font-style: italic;
-  font-size: clamp(22px, 2.5vw, 36px);
-  line-height: 1.7; color: #ffffff;
-  margin-bottom: 80px;
-  padding-bottom: 80px; border-bottom: 1px solid var(--ash);
-  animation: noisePulse 2.5s ease-in-out infinite;
+  font-size: clamp(24px, 2.8vw, 44px);
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 56px;
+  animation: goldGlow 2.5s ease-in-out infinite;
 }
-.story-end {
+.story-origin {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: 1.7; color: #e0e0e0;
-  margin-bottom: 24px;
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--gold); line-height: 1.8;
 }
-.story-close {
-  font-family: var(--serif); font-weight: 400;
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: 1.7; color: #e0e0e0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
-@keyframes noisePulse {
-  0%, 100% { opacity: 0.7; transform: translateY(0); }
-  50%       { opacity: 1;   transform: translateY(-4px); }
+@keyframes goldGlow {
+  0%, 100% { color: var(--white); text-shadow: none; }
+  50%       { color: var(--gold-pale); text-shadow: 0 0 40px rgba(184,160,122,0.5), 0 0 80px rgba(184,160,122,0.25); }
 }
 
 /* ── TEAM ── */
@@ -422,32 +444,36 @@ export default function AboutPage() {
 
           <div className="story-label rv" ref={reveal}>Our Story</div>
 
-          <p className="story-p rv" ref={reveal}>
-            We've sat inside the agencies. We've seen what happens behind the doors — when a client walks in with a dream and walks out with a template.
+          <p className="story-hook rv" ref={reveal}>
+            95% of agencies work the same way.
           </p>
 
-          <p className="story-list rv rv-d1" ref={reveal}>
-            SEO package. Social media posting. Google Ads. Website. Done. Invoice sent.
+          <p className="story-intro rv rv-d1" ref={reveal}>
+            A client walks in with a dream. They walk out with a package.
           </p>
 
-          <p className="story-p rv rv-d1" ref={reveal}>
-            Nobody asked what the brand actually needed. Nobody studied the audience. Nobody built a real strategy.
-          </p>
+          <div className="story-box rv" ref={reveal}>
+            <div className="story-box-line"><span className="arrow">→</span>SEO? Started.</div>
+            <div className="story-box-line"><span className="arrow">→</span>Social media posts? Scheduled.</div>
+            <div className="story-box-line"><span className="arrow">→</span>Google Ads? Running.</div>
+            <div className="story-box-line"><span className="arrow">→</span>Website? Built.</div>
+            <div className="story-box-line"><span className="arrow">→</span>Invoice sent. Job done.</div>
+          </div>
 
-          <p className="story-mid rv rv-d2" ref={reveal}>
+          <p className="story-verdict rv" ref={reveal}>
             Just a checklist. Sold as marketing.
           </p>
 
-          <p className="story-punch rv" ref={reveal}>
+          <p className="story-question rv rv-d1" ref={reveal}>
+            Nobody asked what the brand actually needed. Who is their audience? What will make them stop scrolling?
+          </p>
+
+          <p className="story-noise rv" ref={reveal}>
             That's not marketing. That's noise.
           </p>
 
-          <p className="story-end rv rv-d1" ref={reveal}>
-            We started the MOH because real brands deserve real thinking. Not packages. Not templates.
-          </p>
-
-          <p className="story-close rv rv-d2" ref={reveal}>
-            A strategy built for you. Your audience. Your market. Your moment.
+          <p className="story-origin rv rv-d1" ref={reveal}>
+            We started the MOH because real brands deserve real thinking. Not packages. Not templates. A system built for you — your audience, your market, your moment.
           </p>
 
         </div>
