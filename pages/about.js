@@ -142,7 +142,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .story-deco {
   position: absolute; top: 60px; right: 64px;
   font-family: var(--serif); font-size: 280px; font-weight: 900;
-  color: rgba(255,255,255,0.015); letter-spacing: -.04em;
+  color: rgba(255,255,255,0.03); letter-spacing: -.04em;
   line-height: 1; pointer-events: none; user-select: none;
 }
 .story-inner { max-width: 860px; position: relative; z-index: 2; }
@@ -463,7 +463,7 @@ export default function AboutPage() {
             <div className="story-box-line"><span className="arrow">→</span>Google Ads? Running.</div>
             <div className="story-box-line"><span className="arrow">→</span>Website? Built.</div>
             <div className="story-box-line"><span className="arrow">→</span>Invoice sent. Job done.</div>
-            <p style={{ fontSize: 'clamp(18px,2vw,28px)', color: '#ffffff', fontWeight: 700, borderLeft: '3px solid #cc2200', paddingLeft: '20px' }}>
+            <p style={{ fontSize: 'clamp(18px,2vw,28px)', color: '#ffffff', fontWeight: 700, paddingLeft: '20px' }}>
               This is not marketing. These are just checkpoints.
             </p>
           </div>
