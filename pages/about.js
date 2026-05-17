@@ -122,6 +122,16 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 
 @keyframes fadeUp { from{ opacity:0; transform:translateY(32px) } to{ opacity:1; transform:translateY(0) } }
+@keyframes mohHighlight {
+  0%, 100% { color: #ffffff; text-shadow: 0 0 0px transparent; }
+  50%       { color: #e8d9be; text-shadow: 0 0 60px rgba(184,160,122,0.6), 0 0 120px rgba(184,160,122,0.3); }
+}
+.moh-highlight {
+  display: inline-block;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,160,122,0.15) 50%, transparent 100%);
+  color: #ffffff;
+  animation: mohHighlight 2.5s ease-in-out infinite;
+}
 
 /* ── STORY ── */
 .story {
@@ -397,7 +407,7 @@ export default function AboutPage() {
         <div className="about-hero-inner">
           <div className="about-hero-label">About Us</div>
           <h1 className="about-hero-title">
-            We Are<br /><em>the MOH.</em>
+            We Are<br /><em>the <span className="moh-highlight">MOH</span>.</em>
           </h1>
           <p className="about-hero-sub">
             Built from the inside. For those who deserve better.
