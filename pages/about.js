@@ -230,7 +230,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── TEAM ── */
 .team {
-  padding: 160px 64px;
+  padding: 40px 64px 160px;
   border-top: 1px solid var(--ash);
 }
 .team-label {
@@ -242,18 +242,14 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .team-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 .team-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; max-width: 1000px;
+  gap: 120px;
 }
 .team-card {
-  background: var(--soot);
-  border: 1px solid var(--ash);
-  padding: 40px;
-  display: flex; flex-direction: column; gap: 28px;
-  transition: border-color .4s var(--ease-luxury);
+  max-width: 320px;
+  display: flex; flex-direction: column; gap: 20px;
 }
-.team-card:hover { border-color: var(--gold-dim); }
 .team-photo {
-  width: 100%; aspect-ratio: 4/3;
+  width: 100%; height: 280px;
   background: var(--slate);
   display: flex; align-items: center; justify-content: center;
 }
@@ -261,19 +257,19 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   width: 48px; height: 48px; border-radius: 50%;
   background: var(--smoke);
 }
-.team-info { display: flex; flex-direction: column; gap: 8px; }
+.team-tagline {
+  font-family: var(--sans); font-size: 12px; font-weight: 300;
+  color: var(--haze); letter-spacing: .05em; line-height: 1.6;
+  text-align: center;
+}
+.team-info { display: flex; flex-direction: column; gap: 6px; }
 .team-name {
   font-family: var(--serif); font-size: clamp(20px, 2vw, 28px);
   font-weight: 700; color: var(--white); letter-spacing: -.01em;
 }
 .team-role {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .4em; text-transform: uppercase; color: var(--gold);
-}
-.team-bio {
-  font-family: var(--sans); font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 300; color: var(--haze); line-height: 1.7;
-  margin-top: 4px;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
 }
 
 /* ── BELIEFS ── */
@@ -354,8 +350,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   .story { padding:100px 28px; }
   .story-deco { display:none; }
   .story-list { padding-left:24px; }
-  .team { padding:100px 28px; }
-  .team-grid { grid-template-columns: 1fr; gap:28px; }
+  .team { padding:60px 28px 100px; }
+  .team-grid { grid-template-columns: 1fr; gap:60px; }
+  .team-card { max-width: 100%; }
   .beliefs { padding:60px 28px 100px; }
   .beliefs-item { gap:32px; padding:24px 0; }
   .cta { padding:120px 28px; }
@@ -557,10 +554,10 @@ export default function AboutPage() {
             <div className="team-photo" aria-hidden="true">
               <div className="team-photo-inner" />
             </div>
+            <p className="team-tagline">The strategy. The vision. The obsession.</p>
             <div className="team-info">
               <div className="team-name">Rahul Gupta</div>
               <div className="team-role">Founder &amp; CEO</div>
-              <div className="team-bio">The strategy. The vision. The obsession.</div>
             </div>
           </div>
 
@@ -568,10 +565,10 @@ export default function AboutPage() {
             <div className="team-photo" aria-hidden="true">
               <div className="team-photo-inner" />
             </div>
+            <p className="team-tagline">The operations. The creative. The execution.</p>
             <div className="team-info">
               <div className="team-name">Mansi Rajpoot</div>
               <div className="team-role">Co-Founder &amp; COO</div>
-              <div className="team-bio">The operations. The creative. The execution.</div>
             </div>
           </div>
 
