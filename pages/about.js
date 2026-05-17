@@ -167,7 +167,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .story-box {
   margin-bottom: 56px;
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 8px;
 }
 .story-box-line {
   font-family: var(--sans); font-weight: 300;
@@ -465,6 +465,10 @@ export default function AboutPage() {
             <div className="story-box-line"><span className="arrow">→</span>Google Ads? Running.</div>
             <div className="story-box-line"><span className="arrow">→</span>Website? Built.</div>
             <div className="story-box-line"><span className="arrow">→</span>Invoice sent. Job done.</div>
+            <hr style={{ width: '100%', height: '1px', background: '#b8a07a', border: 'none', margin: '24px 0' }} />
+            <p style={{ fontSize: 'clamp(18px,2vw,28px)', color: '#ffffff', fontWeight: 700, borderLeft: '3px solid #cc2200', paddingLeft: '20px' }}>
+              This is not marketing. These are just checkpoints.
+            </p>
           </div>
 
           <p className="story-verdict rv" ref={reveal}>
