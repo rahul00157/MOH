@@ -509,7 +509,7 @@ export default function AboutPage() {
               </div>
               <div style={{ maxHeight: openBelief === 0 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
-                  We start with a deep discovery — your audience, your competitors, your market position. No two brands get the same strategy.
+                  A clinic and a D2C brand are not just different businesses — they have different audiences, different platforms, different buying triggers, and different metrics that matter. What works for one will fail for the other. Same SEO strategy? Won't work. Same paid platform? Wrong move. Same content approach? Waste of money. We build from scratch — every single time.
                 </p>
               </div>
             </div>
@@ -524,7 +524,7 @@ export default function AboutPage() {
               </div>
               <div style={{ maxHeight: openBelief === 1 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
-                  We build performance systems — paid media, content, SEO — all connected to one goal: measurable growth.
+                  Posting 3 times a week is not a strategy. Running Google Ads is not a strategy. These are just tasks. A real system connects your content, your ads, your audience, and your goal into one engine — where every part feeds the other. That's what we build.
                 </p>
               </div>
             </div>
@@ -539,7 +539,7 @@ export default function AboutPage() {
               </div>
               <div style={{ maxHeight: openBelief === 2 ? '200px' : '0', overflow: 'hidden', transition: 'max-height 0.5s ease' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', color: '#aaaaaa', lineHeight: 1.8, padding: '16px 0 16px 50px', borderLeft: '2px solid var(--gold-dim)' }}>
-                  We run a full audience audit before spending a single rupee. We study who they are, what they scroll, and what makes them buy.
+                  Most agencies go live on Day 1. We don't touch the ad account until we know exactly who we're talking to — what they scroll, what they ignore, what makes them stop, and what makes them buy. Spending money before knowing your audience is not marketing. It's guessing.
                 </p>
               </div>
             </div>
