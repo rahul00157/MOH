@@ -463,7 +463,7 @@ export default function AboutPage() {
             <div className="story-box-line"><span className="arrow">→</span>Google Ads? Running.</div>
             <div className="story-box-line"><span className="arrow">→</span>Website? Built.</div>
             <div className="story-box-line"><span className="arrow">→</span>Invoice sent. Job done.</div>
-            <p style={{ fontSize: 'clamp(18px,2vw,28px)', color: '#ffffff', fontWeight: 700, paddingLeft: '20px' }}>
+            <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 'clamp(20px,2.5vw,38px)', fontWeight: 400, color: '#ffffff', marginTop: '24px', marginBottom: '24px', letterSpacing: '-0.01em' }}>
               This is not marketing. These are just checkpoints.
             </p>
           </div>
