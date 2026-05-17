@@ -76,7 +76,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── ABOUT HERO ── */
 .about-hero {
-  min-height: 100vh;
+  min-height: 60vh;
   display: flex; flex-direction: column; justify-content: center;
   padding: 0 64px;
   position: relative; overflow: hidden;
@@ -135,7 +135,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── STORY ── */
 .story {
-  padding: 160px 64px;
+  padding: 60px 64px 160px;
   border-top: 1px solid var(--ash);
   position: relative; overflow: hidden;
 }
@@ -150,29 +150,29 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   font-family: var(--sans); font-size: 10px; font-weight: 300;
   letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
   display: flex; align-items: center; gap: 16px;
-  margin-bottom: 80px;
+  margin-bottom: 16px;
 }
 .story-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 .story-hook {
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: clamp(24px, 3vw, 42px);
   color: var(--white); line-height: 1.2;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 .story-intro {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(16px, 1.6vw, 22px);
-  color: #aaaaaa; line-height: 1.7;
-  margin-bottom: 56px;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #aaaaaa; line-height: 1.5;
+  margin-bottom: 16px;
 }
 .story-box {
-  margin-bottom: 56px;
+  margin-bottom: 16px;
   display: flex; flex-direction: column; gap: 8px;
 }
 .story-box-line {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(15px, 1.6vw, 22px);
-  color: #cccccc; line-height: 1.6;
+  font-size: 14px;
+  color: #cccccc; line-height: 1.5;
   display: flex; align-items: baseline; gap: 12px;
   opacity: 0;
 }
@@ -185,33 +185,33 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .story-box.in .story-box-line:nth-child(5) { animation-delay: 1.35s; }
 .story-verdict {
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(20px, 2.2vw, 32px);
+  font-size: clamp(14px, 1.4vw, 18px);
   color: var(--white); line-height: 1.3;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 .story-question {
   font-family: var(--sans); font-weight: 300;
-  font-size: clamp(16px, 1.6vw, 22px);
-  color: #aaaaaa; line-height: 1.7;
-  margin-bottom: 56px;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #aaaaaa; line-height: 1.5;
+  margin-bottom: 16px;
 }
 .story-noise {
   font-family: var(--serif); font-weight: 700; font-style: italic;
-  font-size: clamp(24px, 2.8vw, 44px);
+  font-size: clamp(19px, 2.2vw, 35px);
   color: var(--white); line-height: 1.2;
-  margin-bottom: 56px;
+  margin-bottom: 16px;
   animation: goldGlow 2.5s ease-in-out infinite;
 }
 .story-origin {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(16px, 1.8vw, 24px);
-  color: var(--gold); line-height: 1.8;
+  font-size: clamp(13px, 1.4vw, 19px);
+  color: var(--gold); line-height: 1.6;
   margin-bottom: 12px;
 }
 .story-origin-emphasis {
   display: inline-block;
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(20px, 2.2vw, 32px);
+  font-size: clamp(16px, 1.8vw, 26px);
   color: #e8d9be; line-height: 1.4;
   background: rgba(184,160,122,0.08);
   padding: 12px 20px;
