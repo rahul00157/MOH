@@ -291,8 +291,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   border-bottom: 1px solid #1e1e1e;
 }
 .beliefs-statement {
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(28px, 3.5vw, 56px);
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(18px, 2.2vw, 34px);
   line-height: 1.2; color: #ffffff;
   letter-spacing: -0.02em;
 }
@@ -497,17 +497,17 @@ export default function AboutPage() {
 
           <div className="beliefs-item rv" ref={reveal}>
             <div className="beliefs-num">01</div>
-            <div className="beliefs-statement">Every brand is different. Your strategy should be too.</div>
+            <div className="beliefs-statement">Every brand is different. Your strategy should be too. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
           </div>
 
           <div className="beliefs-item rv rv-d1" ref={reveal}>
             <div className="beliefs-num">02</div>
-            <div className="beliefs-statement">Real marketing is not a checklist. It is a system.</div>
+            <div className="beliefs-statement">Real marketing is not a checklist. It is a system. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
           </div>
 
           <div className="beliefs-item rv rv-d2" ref={reveal}>
             <div className="beliefs-num">03</div>
-            <div className="beliefs-statement">We never run ads before we understand your audience.</div>
+            <div className="beliefs-statement">We never run ads before we understand your audience. <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>— How?</span></div>
           </div>
 
         </div>
