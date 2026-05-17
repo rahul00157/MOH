@@ -57,10 +57,63 @@ const NAV_CSS = `
 }
 .nav-btn:hover { background: var(--gold-pale); transform: translateY(-2px); }
 
+/* ── HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: none;
+  padding: 4px; z-index: 201;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--white);
+  transition: transform .35s var(--ease-luxury), opacity .35s;
+}
+
+/* ── OVERLAY ── */
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(3,3,3,.97);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .45s var(--ease-luxury);
+}
+.nav-overlay.open { opacity: 1; pointer-events: all; }
+.nav-overlay-close {
+  position: absolute; top: 28px; right: 28px;
+  background: none; border: none; cursor: none;
+  font-family: var(--sans); font-size: 11px; font-weight: 300;
+  letter-spacing: .35em; text-transform: uppercase; color: var(--white);
+  display: flex; align-items: center; gap: 8px;
+  opacity: .6; transition: opacity .3s;
+}
+.nav-overlay-close:hover { opacity: 1; }
+.nav-overlay-links {
+  list-style: none;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 28px;
+}
+.nav-overlay-link {
+  font-family: var(--serif); font-size: clamp(36px, 9vw, 72px);
+  font-weight: 700; color: var(--white);
+  text-decoration: none; letter-spacing: -.02em; line-height: 1;
+  opacity: 0; transform: translateY(22px);
+  transition: color .3s, opacity .45s var(--ease-luxury), transform .45s var(--ease-luxury);
+}
+.nav-overlay.open .nav-overlay-links li:nth-child(1) .nav-overlay-link { opacity:1; transform:translateY(0); transition-delay:.08s; }
+.nav-overlay.open .nav-overlay-links li:nth-child(2) .nav-overlay-link { opacity:1; transform:translateY(0); transition-delay:.14s; }
+.nav-overlay.open .nav-overlay-links li:nth-child(3) .nav-overlay-link { opacity:1; transform:translateY(0); transition-delay:.20s; }
+.nav-overlay.open .nav-overlay-links li:nth-child(4) .nav-overlay-link { opacity:1; transform:translateY(0); transition-delay:.26s; }
+.nav-overlay.open .nav-overlay-links li:nth-child(5) .nav-overlay-link { opacity:1; transform:translateY(0); transition-delay:.32s; }
+.nav-overlay-link:hover { color: var(--gold); }
+.nav-overlay-link.active { color: var(--gold); }
+
 @media(max-width:960px) {
   .nav { padding:24px 28px; }
   .nav.stuck { padding:14px 28px; }
   .nav-links, .nav-btn { display:none; }
+  .nav-hamburger { display: flex; }
 }
 @media(max-width:600px) {
   .nav-brand-moh { font-size:22px; }
@@ -92,7 +145,8 @@ const NAV_ITEMS = [
  * @param {string}   activePage - Label of the currently active nav item (e.g. "About Us").
  */
 export default function Navbar({ onEnter, onLeave, activePage = "" }) {
-  const [stuck, setStuck] = useState(false);
+  const [stuck, setStuck]       = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /** Sets `stuck` when the page has scrolled past the navbar threshold. */
   useEffect(() => {
@@ -101,9 +155,39 @@ export default function Navbar({ onEnter, onLeave, activePage = "" }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /** Lock body scroll while overlay is open. */
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const close = () => setMenuOpen(false);
+
   return (
     <>
       <style>{NAV_CSS}</style>
+
+      {/* ── Fullscreen overlay menu ── */}
+      <div className={`nav-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+        <button className="nav-overlay-close" onClick={close} aria-label="Close menu">
+          Close &nbsp;✕
+        </button>
+        <ul className="nav-overlay-links">
+          {NAV_ITEMS.map(n => (
+            <li key={n.label}>
+              <a
+                href={n.href}
+                className={`nav-overlay-link${n.label === activePage ? " active" : ""}`}
+                onClick={close}
+              >
+                {n.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* ── Navbar ── */}
       <nav className={`nav ${stuck ? "stuck" : ""}`}>
         <a href="/" className="nav-brand" onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <span className="nav-brand-the">the</span>
@@ -126,6 +210,15 @@ export default function Navbar({ onEnter, onLeave, activePage = "" }) {
         <a href="/#contact" className="nav-btn" onMouseEnter={onEnter} onMouseLeave={onLeave}>
           Let's Talk
         </a>
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+        >
+          <span /><span /><span />
+        </button>
       </nav>
     </>
   );
