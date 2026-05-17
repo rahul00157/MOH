@@ -560,7 +560,13 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 ───────────────────────────────────────────── */
 
 /** Navigation labels rendered in the navbar and footer nav list. */
-const NAV_ITEMS = ["Home", "About Us", "What We Do", "Work", "Contact"];
+const NAV_ITEMS = [
+  { label: "Home",       href: "/" },
+  { label: "About Us",   href: "/about" },
+  { label: "What We Do", href: "/services" },
+  { label: "Work",       href: "/work" },
+  { label: "Contact",    href: "/contact" },
+];
 
 /** Marquee labels cycling continuously in the ticker strip. */
 const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "Moving Image", "Editorial Direction", "Market Dominance", "Founder Branding", "Cultural Influence"];
@@ -876,9 +882,9 @@ export default function TheMOHHomepage() {
           </div>
           <div className="foot-divider" />
           <ul className="foot-nav rv rv-d1" ref={reveal}>
-            {[...NAV_ITEMS, "Let's Talk"].map(n => (
-              <li key={n}>
-                <a href="#" onMouseEnter={onEnter} onMouseLeave={onLeave}>{n}</a>
+            {[...NAV_ITEMS, { label: "Let's Talk", href: "/contact" }].map(n => (
+              <li key={n.label}>
+                <a href={n.href} onMouseEnter={onEnter} onMouseLeave={onLeave}>{n.label}</a>
               </li>
             ))}
           </ul>

@@ -128,9 +128,9 @@ const NAV_CSS = `
 const NAV_ITEMS = [
   { label: "Home",       href: "/" },
   { label: "About Us",   href: "/about" },
-  { label: "What We Do", href: "/#what-we-do" },
-  { label: "Work",       href: "/#work" },
-  { label: "Contact",    href: "/#contact" },
+  { label: "What We Do", href: "/services" },
+  { label: "Work",       href: "/work" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -207,7 +207,7 @@ export default function Navbar({ onEnter, onLeave, activePage = "" }) {
             </li>
           ))}
         </ul>
-        <a href="/#contact" className="nav-btn" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+        <a href="/contact" className="nav-btn" onMouseEnter={onEnter} onMouseLeave={onLeave}>
           Let's Talk
         </a>
         <button
