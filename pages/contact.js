@@ -276,11 +276,11 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 ───────────────────────────────────────────── */
 
 const SERVICES = [
-  { num: "01", name: "Attention Marketing",  desc: "We make your brand impossible to scroll past." },
-  { num: "02", name: "Performance Growth",   desc: "Real ads. Real platforms. Real results." },
-  { num: "03", name: "Creative and Visual",  desc: "Your brand should look as good as it performs." },
-  { num: "04", name: "Founder Branding",     desc: "Your name is your most powerful asset." },
-  { num: "05", name: "Full Growth System",   desc: "Everything connected. One goal. Unstoppable growth." },
+  { num: "01", name: "Attention Marketing", desc: "You're posting. You're creating. But nobody's watching. The problem isn't your product — it's that your content is reaching the wrong people, at the wrong time, on the wrong platform. We fix that. We figure out exactly where your audience lives online, what makes them stop scrolling, and build a real attention strategy." },
+  { num: "02", name: "Performance Growth",  desc: "You've probably already tried running ads. Maybe they worked, maybe they didn't. The real problem is most people run ads without knowing who they're talking to. We don't touch your ad account until we understand your buyer. Then we pick the right platform and scale what works." },
+  { num: "03", name: "Creative and Visual", desc: "People judge your brand in 3 seconds. If your visuals don't look premium, they move on. We handle everything visual — brand identity, ad creatives, motion graphics, social content. Your brand should look like it belongs at the top." },
+  { num: "04", name: "Founder Branding",    desc: "Your name is your most powerful asset." },
+  { num: "05", name: "Full Growth System",  desc: "Everything connected. One goal. Unstoppable growth." },
 ];
 
 /* ─────────────────────────────────────────────
