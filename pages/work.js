@@ -293,7 +293,7 @@ const WORKS = [
     country:   "India",
     tags:      "Programmatic · DV360 · Brand Awareness · 2023",
     desc:      "One billion people saw what we made.",
-    href:      "#",
+    href:      "/work/bmw",
     bg:        "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,60,150,0.12) 0%, transparent 70%), #080810",
     watermark: "BMW",
     logoSrc:   "/bmw.png",
