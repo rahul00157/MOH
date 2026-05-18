@@ -260,25 +260,24 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ── CONTACT FOOTER ── */
 .contact-foot {
   border-top: 1px solid var(--ash);
-  padding: 100px 64px 80px;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 32px;
+  padding: 80px 64px;
+  position: relative; text-align: right;
 }
 .contact-foot-title {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(48px, 8vw, 120px);
   line-height: 1; letter-spacing: -.03em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
-  animation: mohFooterPulse 3s ease-in-out infinite;
+  color: #ffffff;
+  animation: mohFooterPulse 2.5s ease-in-out infinite;
 }
 .contact-foot-copy {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
   letter-spacing: .2em; color: #555555;
+  margin-top: 24px;
 }
 @keyframes mohFooterPulse {
-  0%, 100% { -webkit-text-stroke: 1px rgba(255,255,255,0.1); opacity: 0.6; }
-  50%       { -webkit-text-stroke: 1px rgba(184,160,122,0.5); opacity: 1; color: rgba(184,160,122,0.1); }
+  0%, 100% { opacity: 0.15; text-shadow: none; }
+  50%       { opacity: 1; text-shadow: 0 0 80px rgba(184,160,122,0.4), 0 0 160px rgba(184,160,122,0.2); color: #ffffff; }
 }
 
 /* ── MOBILE ── */
