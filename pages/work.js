@@ -162,13 +162,21 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   letter-spacing: -.01em;
 }
 .work-entry-cta {
+  display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--sans); font-size: 11px; font-weight: 400;
-  letter-spacing: .3em; text-transform: uppercase;
-  color: var(--white); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 10px;
-  transition: color .3s var(--ease-luxury), gap .3s var(--ease-luxury);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: #ffffff; text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 6px; margin-top: 32px;
+  position: relative;
+  animation: viewCasePulse 2.5s ease-in-out infinite;
 }
-.work-entry-cta:hover { color: var(--gold); gap: 18px; }
+.work-entry-cta:hover .cta-arrow { transform: translateX(6px); }
+.cta-arrow { display: inline-block; transition: transform 0.3s; }
+@keyframes viewCasePulse {
+  0%, 100% { color: #ffffff; border-bottom-color: rgba(255,255,255,0.2); }
+  50%       { color: #e8d9be; border-bottom-color: rgba(184,160,122,0.8); }
+}
 
 /* ── FOOTER ── */
 .foot {
@@ -422,7 +430,7 @@ export default function WorkPage() {
                 onMouseEnter={onEnter}
                 onMouseLeave={onLeave}
               >
-                View Case Study →
+                View Case Study <span className="cta-arrow">→</span>
               </a>
             </div>
           </article>
