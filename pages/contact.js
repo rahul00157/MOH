@@ -257,6 +257,30 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   color: var(--haze); line-height: 1.7;
 }
 
+/* ── CONTACT FOOTER ── */
+.contact-foot {
+  border-top: 1px solid var(--ash);
+  padding: 100px 64px 80px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 32px;
+}
+.contact-foot-title {
+  font-family: var(--serif); font-weight: 900;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 1; letter-spacing: -.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+  animation: mohFooterPulse 3s ease-in-out infinite;
+}
+.contact-foot-copy {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .2em; color: #555555;
+}
+@keyframes mohFooterPulse {
+  0%, 100% { -webkit-text-stroke: 1px rgba(255,255,255,0.1); opacity: 0.6; }
+  50%       { -webkit-text-stroke: 1px rgba(184,160,122,0.5); opacity: 1; color: rgba(184,160,122,0.1); }
+}
+
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .contact-hero { padding:0 28px; }
@@ -473,6 +497,12 @@ export default function ContactPage() {
         </div>
 
       </section>
+
+      {/* ──────── FOOTER ──────── */}
+      <footer className="contact-foot">
+        <div className="contact-foot-title">We are the MOH.</div>
+        <p className="contact-foot-copy">© 2025 the MOH. All rights reserved.</p>
+      </footer>
     </>
   );
 }
