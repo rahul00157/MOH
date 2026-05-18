@@ -175,7 +175,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .cta-arrow { display: inline-block; transition: transform 0.3s; }
 @keyframes viewCasePulse {
   0%, 100% { color: #ffffff; border-bottom-color: rgba(255,255,255,0.2); }
-  50%       { color: #e8d9be; border-bottom-color: rgba(184,160,122,0.8); }
+  50%       { color: #e8d9be; border-bottom-color: rgba(184,160,122,0.9); text-shadow: 0 0 20px rgba(184,160,122,0.3); }
 }
 
 /* ── FOOTER ── */
