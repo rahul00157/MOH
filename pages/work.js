@@ -177,6 +177,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   0%, 100% { color: #ffffff; border-bottom-color: rgba(255,255,255,0.2); }
   50%       { color: #e8d9be; border-bottom-color: rgba(184,160,122,0.9); text-shadow: 0 0 20px rgba(184,160,122,0.3); }
 }
+@keyframes caseStudyPulse {
+  0%, 100% { color: rgba(255,255,255,0.4); }
+  50%       { color: #e8d9be; text-shadow: 0 0 20px rgba(184,160,122,0.6); }
+}
 
 /* ── FOOTER ── */
 .foot {
@@ -431,12 +435,12 @@ export default function WorkPage() {
                 onMouseLeave={onLeave}
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "10px",
-                  fontFamily: "var(--sans)", fontSize: "11px", fontWeight: 400,
+                  fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 400,
                   letterSpacing: "0.35em", textTransform: "uppercase",
                   color: "#ffffff", textDecoration: "none",
                   borderBottom: "1px solid rgba(255,255,255,0.3)",
                   paddingBottom: "6px", marginTop: "32px",
-                  animation: "viewCasePulse 2.5s ease-in-out infinite",
+                  animation: "caseStudyPulse 2.5s ease-in-out infinite",
                 }}
               >
                 View Case Study <span className="cta-arrow">→</span>
