@@ -136,10 +136,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .stmt-q {
   font-family: var(--serif); font-weight: 500; font-style: italic;
-  font-size: clamp(26px, 4vw, 62px);
-  color: var(--haze); line-height: 1.25; letter-spacing: -.025em;
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--haze); line-height: 1.6; letter-spacing: -.025em;
   max-width: 960px;
-  margin-bottom: 56px;
+  margin-bottom: 20px;
 }
 .stmt-q:last-of-type { margin-bottom: 0; }
 .stmt-divider {
@@ -149,7 +149,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .stmt-deny {
   font-family: var(--serif); font-weight: 900;
-  font-size: clamp(36px, 6vw, 96px);
+  font-size: clamp(18px, 2vw, 28px);
   line-height: .95; letter-spacing: -.035em;
   color: var(--gold);
   margin-bottom: 56px;
