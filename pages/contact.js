@@ -150,9 +150,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-top: 32px; margin-bottom: 56px;
 }
 .stmt-cta {
-  font-family: var(--sans); font-size: 15px;
-  font-weight: 300; color: #aaaaaa;
-  line-height: 1.9; max-width: 700px;
+  font-family: var(--sans); font-size: 16px;
+  font-weight: 300; color: #cccccc;
+  line-height: 1.8; max-width: 700px; margin-top: 16px;
 }
 
 /* ── CONTACT FORM + SERVICES ── */
@@ -215,7 +215,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   transform: rotate(45deg);
   pointer-events: none;
 }
-.form-textarea { resize: none; line-height: 1.8; min-height: 120px; }
+.form-textarea { resize: none; line-height: 1.8; min-height: 160px; }
 
 .form-submit {
   font-family: var(--sans); font-size: 11px; font-weight: 400;
@@ -237,7 +237,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 .service-card {
   display: flex; align-items: flex-start; gap: 28px;
-  padding: 32px 0; border-bottom: 1px solid var(--ash);
+  padding: 16px 0; border-bottom: 1px solid var(--ash);
   transition: border-color .3s;
 }
 .service-card:first-of-type { border-top: 1px solid var(--ash); }
@@ -248,21 +248,76 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .service-name {
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(17px, 1.7vw, 24px);
+  font-size: clamp(16px, 1.8vw, 22px);
   color: var(--white); letter-spacing: -.01em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .service-desc {
   font-family: var(--sans); font-size: 13px; font-weight: 300;
-  color: var(--haze); line-height: 1.7;
+  color: #aaaaaa; line-height: 1.8;
 }
 
+
+/* ── FOOTER ── */
+.foot {
+  border-top: 1px solid var(--ash);
+  padding: 100px 64px 60px;
+  display: flex; flex-direction: column; gap: 80px;
+}
+.foot-top {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: start; gap: 80px;
+}
+.foot-brand .foot-the {
+  font-family: var(--sans); font-size: 9px; font-weight: 300;
+  letter-spacing: .55em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 4px;
+}
+.foot-brand .foot-moh {
+  font-family: var(--serif); font-size: 56px; font-weight: 900;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--white);
+  line-height: 1;
+}
+.foot-brand .foot-line {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--fog);
+  margin-top: 16px;
+}
+.foot-divider { width: 1px; background: var(--ash); align-self: stretch; }
+.foot-nav { display: flex; flex-direction: column; gap: 18px; list-style: none; align-items: center; }
+.foot-nav a {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #d8d8d8;
+  text-decoration: none; transition: color .3s;
+}
+.foot-nav a:hover { color: var(--white); }
+.foot-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 48px; border-top: 1px solid var(--ash);
+  gap: 24px; flex-wrap: wrap;
+}
+.foot-copy {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .2em; color: #888888;
+}
+.foot-social { display: flex; gap: 36px; }
+.foot-social a {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #cccccc;
+  text-decoration: none; transition: color .3s;
+}
+.foot-social a:hover { color: #ffffff; }
 
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .contact-hero { padding:0 28px; }
   .stmt { padding:100px 28px 120px; }
   .contact-section { grid-template-columns:1fr; gap:80px; padding:100px 28px 120px; }
+  .foot { padding:80px 28px 48px; }
+  .foot-top { grid-template-columns:1fr; }
+  .foot-divider { display:none; }
+  .foot-nav { align-items:flex-start; }
+  .foot-bottom { flex-direction:column; align-items:flex-start; }
 }
 `;
 
@@ -474,6 +529,40 @@ export default function ContactPage() {
         </div>
 
       </section>
+
+      {/* ──────── FOOTER ──────── */}
+      <footer className="foot">
+        <div className="foot-top">
+          <div className="foot-brand rv" ref={reveal}>
+            <div className="foot-the">the</div>
+            <div className="foot-moh">MOH</div>
+            <div className="foot-line">Media &amp; Growth Company — India</div>
+          </div>
+          <div className="foot-divider" />
+          <ul className="foot-nav rv rv-d1" ref={reveal}>
+            {[
+              { label: "Home",       href: "/" },
+              { label: "About Us",   href: "/about" },
+              { label: "What We Do", href: "/services" },
+              { label: "Work",       href: "/work" },
+              { label: "Contact",    href: "/contact" },
+            ].map(({ label, href }) => (
+              <li key={label}>
+                <a href={href} onMouseEnter={onEnter} onMouseLeave={onLeave}>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="foot-bottom rv" ref={reveal}>
+          <span className="foot-copy">© 2025 the MOH. All rights reserved.</span>
+          <div className="foot-social">
+            <a href="https://www.linkedin.com/company/the-moh-media" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>LinkedIn</a>
+            <a href="https://www.instagram.com/themohmedia/" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>Instagram</a>
+            <a href="https://x.com/themohmedia" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>X</a>
+          </div>
+        </div>
+      </footer>
 
     </>
   );
