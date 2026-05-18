@@ -123,10 +123,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ── WORK LIST ── */
 .work-list {
   border-top: 1px solid var(--ash);
-  padding: 0 64px 160px;
+  padding: 0 0 0;
 }
 .work-entry {
-  padding: 80px 0;
+  padding: 80px 64px;
   border-bottom: 1px solid var(--ash);
 }
 .work-entry-brand {
@@ -229,8 +229,8 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .work-hero { padding:0 28px; }
-  .work-list { padding:0 28px 100px; }
-  .work-entry { padding:60px 0; }
+  .work-list { padding:0; }
+  .work-entry { padding:60px 28px; }
   .foot { padding:80px 28px 48px; }
   .foot-top { grid-template-columns:1fr; }
   .foot-divider { display:none; }
@@ -250,6 +250,15 @@ const WORKS = [
     tags:    "Programmatic · DV360 · Brand Awareness · 2023",
     desc:    "One billion people saw what we made.",
     href:    "#",
+    bg:      "linear-gradient(rgba(0,50,120,0.08),rgba(0,50,120,0.08)),#0a0a0f",
+  },
+  {
+    brand:   "GODREJ",
+    country: "Properties",
+    tags:    "LinkedIn · B2B Lead Gen · Real Estate · India",
+    desc:    "684 decision-makers walked in. 28% more qualified than before.",
+    href:    "#",
+    bg:      "linear-gradient(rgba(0,80,40,0.08),rgba(0,80,40,0.08)),#0a0f0a",
   },
 ];
 
@@ -326,8 +335,8 @@ export default function WorkPage() {
 
       {/* ──────── WORK LIST ──────── */}
       <section className="work-list">
-        {WORKS.map(({ brand, country, tags, desc, href }) => (
-          <article key={brand} className="work-entry">
+        {WORKS.map(({ brand, country, tags, desc, href, bg }) => (
+          <article key={brand} className="work-entry" style={{ background: bg }}>
             <span className="work-entry-brand rv" ref={reveal}>{brand}</span>
             <div className="work-entry-country rv" ref={reveal}>{country}</div>
             <div className="work-entry-tags rv rv-d1" ref={reveal}>{tags}</div>
