@@ -142,17 +142,12 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   margin-bottom: 20px;
 }
 .stmt-q:last-of-type { margin-bottom: 0; }
-.stmt-divider {
-  width: 100%; height: 2px;
-  background: var(--white);
-  margin: 100px 0;
-}
 .stmt-deny {
   font-family: var(--serif); font-weight: 900;
   font-size: clamp(18px, 2vw, 28px);
   line-height: .95; letter-spacing: -.035em;
   color: var(--gold);
-  margin-bottom: 56px;
+  margin-top: 32px; margin-bottom: 56px;
 }
 .stmt-cta {
   font-family: var(--sans); font-size: clamp(16px, 1.6vw, 22px);
@@ -266,7 +261,6 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 @media(max-width:960px) {
   .contact-hero { padding:0 28px; }
   .stmt { padding:100px 28px 120px; }
-  .stmt-divider { margin:72px 0; }
   .contact-section { grid-template-columns:1fr; gap:80px; padding:100px 28px 120px; }
 }
 `;
@@ -375,8 +369,6 @@ export default function ContactPage() {
         <p className="stmt-q rv" ref={reveal}>
           Still getting a new strategy deck every month that looks different but does the same nothing?
         </p>
-
-        <div className="stmt-divider rv" ref={reveal} />
 
         <p className="stmt-deny rv" ref={reveal}>
           We don't do any of that.
