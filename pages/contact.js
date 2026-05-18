@@ -160,13 +160,120 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   line-height: 1.9; max-width: 700px;
 }
 
+/* ── CONTACT FORM + SERVICES ── */
+.contact-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 100px; padding: 120px 64px 180px;
+  border-top: 1px solid var(--ash);
+}
+
+.form-section-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 64px;
+}
+.form-section-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+
+.form-field { display: flex; flex-direction: column; margin-bottom: 44px; }
+.form-field-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 300;
+  letter-spacing: .45em; text-transform: uppercase; color: var(--fog);
+  margin-bottom: 14px;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--sans); font-size: 15px; font-weight: 300;
+  color: var(--white); background: transparent;
+  border: none; border-bottom: 1px solid rgba(255,255,255,.18);
+  padding: 10px 0; outline: none; width: 100%;
+  transition: border-color .4s var(--ease-luxury);
+  caret-color: var(--gold);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus { border-bottom-color: var(--white); }
+.form-input::placeholder,
+.form-textarea::placeholder { color: transparent; }
+
+.form-select-wrap { position: relative; }
+.form-select {
+  appearance: none; cursor: none;
+  color: var(--fog);
+}
+.form-select.has-value { color: var(--white); }
+.form-select option { background: var(--coal); color: var(--white); }
+.form-select-arrow {
+  position: absolute; right: 0; bottom: 18px;
+  width: 7px; height: 7px;
+  border-right: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.form-textarea { resize: none; line-height: 1.8; }
+
+.form-submit {
+  font-family: var(--sans); font-size: 11px; font-weight: 400;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: var(--ink); background: var(--white);
+  border: 1px solid var(--white); padding: 20px 52px;
+  cursor: none; margin-top: 8px; display: inline-block;
+  transition: background .35s var(--ease-luxury), color .35s var(--ease-luxury);
+}
+.form-submit:hover { background: transparent; color: var(--white); }
+
+.services-section-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 64px;
+}
+.services-section-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+
+.service-card {
+  display: flex; align-items: flex-start; gap: 28px;
+  padding: 32px 0; border-bottom: 1px solid var(--ash);
+  transition: border-color .3s;
+}
+.service-card:first-of-type { border-top: 1px solid var(--ash); }
+.service-num {
+  font-family: var(--sans); font-size: 11px; font-weight: 300;
+  letter-spacing: .4em; color: var(--gold);
+  min-width: 42px; padding-top: 5px; flex-shrink: 0;
+}
+.service-name {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(17px, 1.7vw, 24px);
+  color: var(--white); letter-spacing: -.01em;
+  margin-bottom: 8px;
+}
+.service-desc {
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  color: var(--haze); line-height: 1.7;
+}
+
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .contact-hero { padding:0 28px; }
   .stmt { padding:100px 28px 120px; }
   .stmt-divider { margin:72px 0; }
+  .contact-section { grid-template-columns:1fr; gap:80px; padding:100px 28px 120px; }
 }
 `;
+
+/* ─────────────────────────────────────────────
+   DATA
+───────────────────────────────────────────── */
+
+const SERVICES = [
+  { num: "01", name: "Attention Marketing",  desc: "We make your brand impossible to scroll past." },
+  { num: "02", name: "Performance Growth",   desc: "Real ads. Real platforms. Real results." },
+  { num: "03", name: "Creative and Visual",  desc: "Your brand should look as good as it performs." },
+  { num: "04", name: "Founder Branding",     desc: "Your name is your most powerful asset." },
+  { num: "05", name: "Full Growth System",   desc: "Everything connected. One goal. Unstoppable growth." },
+];
 
 /* ─────────────────────────────────────────────
    COMPONENT
@@ -212,6 +319,9 @@ export default function ContactPage() {
   const reveal = useCallback(el => {
     if (el && !revealEls.current.includes(el)) revealEls.current.push(el);
   }, []);
+
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", country: "", service: "", brief: "" });
+  const setField = (field) => (e) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
   const onEnter = () => setExpand(true);
   const onLeave = () => setExpand(false);
@@ -267,6 +377,100 @@ export default function ContactPage() {
           Fill the form. Tell us about your brand. We'll tell you exactly what it needs.{" "}
           No deck. No package. No template. Just real work.
         </p>
+      </section>
+
+      {/* ──────── FORM + SERVICES ──────── */}
+      <section className="contact-section">
+
+        {/* Left: Form */}
+        <div>
+          <div className="form-section-label rv" ref={reveal}>Get in Touch</div>
+          <form onSubmit={e => e.preventDefault()}>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-name">Full Name</label>
+              <input id="cf-name" className="form-input" type="text"
+                value={form.name} onChange={setField("name")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-email">Email</label>
+              <input id="cf-email" className="form-input" type="email"
+                value={form.email} onChange={setField("email")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-phone">Phone Number</label>
+              <input id="cf-phone" className="form-input" type="tel"
+                value={form.phone} onChange={setField("phone")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-company">Company or Brand Name</label>
+              <input id="cf-company" className="form-input" type="text"
+                value={form.company} onChange={setField("company")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-country">Country</label>
+              <input id="cf-country" className="form-input" type="text"
+                value={form.country} onChange={setField("country")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-service">What do you need help with</label>
+              <div className="form-select-wrap">
+                <select id="cf-service"
+                  className={`form-select${form.service ? " has-value" : ""}`}
+                  value={form.service} onChange={setField("service")}
+                  onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                  <option value="" disabled hidden />
+                  <option value="attention">Attention Marketing</option>
+                  <option value="performance">Performance Growth</option>
+                  <option value="creative">Creative and Visual</option>
+                  <option value="founder">Founder Branding</option>
+                  <option value="full">Full Growth System</option>
+                  <option value="notsure">Not Sure — Let's Talk</option>
+                </select>
+                <div className="form-select-arrow" aria-hidden="true" />
+              </div>
+            </div>
+
+            <div className="form-field rv" ref={reveal}>
+              <label className="form-field-label" htmlFor="cf-brief">Tell us about your brand</label>
+              <textarea id="cf-brief" className="form-textarea" rows={5}
+                value={form.brief} onChange={setField("brief")}
+                onMouseEnter={onEnter} onMouseLeave={onLeave} />
+            </div>
+
+            <button className="form-submit rv" ref={reveal} type="submit"
+              onMouseEnter={onEnter} onMouseLeave={onLeave}>
+              Let's Talk
+            </button>
+
+          </form>
+        </div>
+
+        {/* Right: Services */}
+        <div>
+          <div className="services-section-label rv" ref={reveal}>What We Do</div>
+          {SERVICES.map(({ num, name, desc }) => (
+            <div key={num} className="service-card rv" ref={reveal}
+              onMouseEnter={onEnter} onMouseLeave={onLeave}>
+              <div className="service-num">{num}</div>
+              <div>
+                <div className="service-name">{name}</div>
+                <div className="service-desc">{desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </section>
     </>
   );
