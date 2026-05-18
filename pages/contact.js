@@ -168,26 +168,34 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 
 .form-section-label {
-  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  font-family: var(--sans); font-size: 11px; font-weight: 300;
   letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
   display: flex; align-items: center; gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 28px;
 }
 .form-section-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.form-section-heading {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(36px, 5vw, 72px);
+  color: #ffffff; line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  opacity: 0; animation: fuA 1s ease forwards;
+}
+@keyframes fuA { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
 .form-field { display: flex; flex-direction: column; margin-bottom: 32px; }
 .form-field-label {
-  font-family: var(--sans); font-size: 11px; font-weight: 500;
-  letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.35em; text-transform: uppercase; color: #ffffff;
   margin-bottom: 14px;
 }
 .form-input,
 .form-select,
 .form-textarea {
-  font-family: var(--sans); font-size: 16px; font-weight: 300;
+  font-family: var(--sans); font-size: 18px; font-weight: 300;
   color: #ffffff; background: transparent;
   border: none; border-bottom: 1px solid #444444;
-  padding: 14px 0; outline: none; width: 100%;
+  padding: 16px 0; outline: none; width: 100%;
   transition: border-color .4s var(--ease-luxury);
   caret-color: var(--gold);
 }
@@ -385,6 +393,7 @@ export default function ContactPage() {
         {/* Left: Form */}
         <div>
           <div className="form-section-label rv" ref={reveal}>Get in Touch</div>
+          <h2 className="form-section-heading">Let's Build Something Real.</h2>
           <form onSubmit={e => e.preventDefault()}>
 
             <div className="form-field rv" ref={reveal}>
