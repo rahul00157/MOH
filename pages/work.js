@@ -246,12 +246,13 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 const WORKS = [
   {
-    brand:   "BMW",
-    country: "India",
-    tags:    "Programmatic · DV360 · Brand Awareness · 2023",
-    desc:    "One billion people saw what we made.",
-    href:    "#",
-    bg:      "linear-gradient(rgba(0,50,120,0.08),rgba(0,50,120,0.08)),#0a0a0f",
+    brand:     "BMW",
+    country:   "India",
+    tags:      "Programmatic · DV360 · Brand Awareness · 2023",
+    desc:      "One billion people saw what we made.",
+    href:      "#",
+    bg:        "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,60,150,0.12) 0%, transparent 70%), #080810",
+    watermark: "BMW",
   },
   {
     brand:   "GODREJ",
@@ -352,21 +353,34 @@ export default function WorkPage() {
 
       {/* ──────── WORK LIST ──────── */}
       <section className="work-list">
-        {WORKS.map(({ brand, country, tags, desc, href, bg }) => (
-          <article key={brand} className="work-entry" style={{ background: bg }}>
-            <span className="work-entry-brand rv" ref={reveal}>{brand}</span>
-            <div className="work-entry-country rv" ref={reveal}>{country}</div>
-            <div className="work-entry-tags rv rv-d1" ref={reveal}>{tags}</div>
-            <p className="work-entry-desc rv rv-d1" ref={reveal}>{desc}</p>
-            <a
-              className="work-entry-cta rv rv-d2"
-              href={href}
-              ref={reveal}
-              onMouseEnter={onEnter}
-              onMouseLeave={onLeave}
-            >
-              View Case Study →
-            </a>
+        {WORKS.map(({ brand, country, tags, desc, href, bg, watermark }) => (
+          <article key={brand} className="work-entry" style={{ background: bg, position: "relative" }}>
+            {watermark && (
+              <div aria-hidden="true" style={{
+                position: "absolute", inset: 0,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: "var(--serif)", fontSize: "clamp(200px,30vw,500px)",
+                fontWeight: 900, color: "transparent",
+                WebkitTextStroke: "1px rgba(255,255,255,0.04)",
+                letterSpacing: "-0.05em", pointerEvents: "none",
+                userSelect: "none", zIndex: 0, overflow: "hidden",
+              }}>{watermark}</div>
+            )}
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <span className="work-entry-brand rv" ref={reveal}>{brand}</span>
+              <div className="work-entry-country rv" ref={reveal}>{country}</div>
+              <div className="work-entry-tags rv rv-d1" ref={reveal}>{tags}</div>
+              <p className="work-entry-desc rv rv-d1" ref={reveal}>{desc}</p>
+              <a
+                className="work-entry-cta rv rv-d2"
+                href={href}
+                ref={reveal}
+                onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
+              >
+                View Case Study →
+              </a>
+            </div>
           </article>
         ))}
       </section>
