@@ -253,6 +253,7 @@ const WORKS = [
     href:      "#",
     bg:        "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,60,150,0.12) 0%, transparent 70%), #080810",
     watermark: "BMW",
+    logoSrc:   "/bmw.png",
   },
   {
     brand:   "GODREJ",
@@ -353,8 +354,20 @@ export default function WorkPage() {
 
       {/* ──────── WORK LIST ──────── */}
       <section className="work-list">
-        {WORKS.map(({ brand, country, tags, desc, href, bg, watermark }) => (
+        {WORKS.map(({ brand, country, tags, desc, href, bg, watermark, logoSrc }) => (
           <article key={brand} className="work-entry" style={{ background: bg, position: "relative" }}>
+            {logoSrc && (
+              <img
+                src={logoSrc} alt="" aria-hidden="true"
+                style={{
+                  position: "absolute", top: "50%", left: "50%",
+                  transform: "translate(-50%,-50%)",
+                  width: "70%", height: "auto", objectFit: "contain",
+                  opacity: 0.04, pointerEvents: "none", userSelect: "none",
+                  zIndex: 0, filter: "grayscale(100%)",
+                }}
+              />
+            )}
             {watermark && (
               <div aria-hidden="true" style={{
                 position: "absolute", inset: 0,
