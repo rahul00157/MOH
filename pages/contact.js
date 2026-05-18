@@ -258,22 +258,6 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 
 
-/* ── BRAND STATEMENT ── */
-.brand-stmt {
-  padding: 100px 64px;
-  border-top: 1px solid var(--ash);
-  text-align: center;
-}
-.brand-stmt-text {
-  font-family: var(--serif); font-weight: 900;
-  font-size: clamp(32px, 5vw, 80px);
-  color: #ffffff; letter-spacing: -0.02em; line-height: 1.1;
-  animation: brandPulse 3s ease-in-out infinite;
-}
-@keyframes brandPulse {
-  0%, 100% { opacity: 0.2; text-shadow: none; }
-  50%       { opacity: 1; text-shadow: 0 0 80px rgba(255,255,255,0.15); }
-}
 
 /* ── FOOTER ── */
 .foot {
@@ -545,11 +529,6 @@ export default function ContactPage() {
           ))}
         </div>
 
-      </section>
-
-      {/* ──────── BRAND STATEMENT ──────── */}
-      <section className="brand-stmt">
-        <p className="brand-stmt-text">We build brands people can't ignore.</p>
       </section>
 
       {/* ──────── FOOTER ──────── */}
