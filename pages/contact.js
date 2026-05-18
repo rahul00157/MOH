@@ -74,9 +74,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── CONTACT HERO ── */
 .contact-hero {
-  min-height: 60vh;
+  min-height: 50vh;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 0 64px;
+  padding: 0 64px 40px;
   position: relative; overflow: hidden;
 }
 .contact-hero-bg {
@@ -130,35 +130,35 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── STATEMENT ── */
 .stmt {
-  padding: 140px 64px 180px;
+  padding: 40px 64px 40px;
   border-top: 1px solid var(--ash);
   position: relative; overflow: hidden;
 }
 .stmt-q {
-  font-family: var(--serif); font-weight: 500; font-style: italic;
-  font-size: clamp(16px, 1.8vw, 24px);
-  color: var(--haze); line-height: 1.6; letter-spacing: -.025em;
+  font-family: var(--sans); font-weight: 400; font-style: normal;
+  font-size: clamp(15px, 1.6vw, 20px);
+  color: #cccccc; line-height: 1.7; letter-spacing: 0;
   max-width: 960px;
   margin-bottom: 20px;
 }
 .stmt-q:last-of-type { margin-bottom: 0; }
 .stmt-deny {
-  font-family: var(--serif); font-weight: 900;
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: .95; letter-spacing: -.035em;
+  font-family: var(--serif); font-weight: 700; font-style: normal;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.1; letter-spacing: -.02em;
   color: var(--gold);
   margin-top: 32px; margin-bottom: 56px;
 }
 .stmt-cta {
-  font-family: var(--sans); font-size: clamp(16px, 1.6vw, 22px);
-  font-weight: 300; color: var(--white);
+  font-family: var(--sans); font-size: 15px;
+  font-weight: 300; color: #aaaaaa;
   line-height: 1.9; max-width: 700px;
 }
 
 /* ── CONTACT FORM + SERVICES ── */
 .contact-section {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 100px; padding: 120px 64px 180px;
+  gap: 100px; padding: 60px 64px 180px;
   border-top: 1px solid var(--ash);
 }
 
