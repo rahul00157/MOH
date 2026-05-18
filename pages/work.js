@@ -133,19 +133,24 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   font-family: var(--serif); font-weight: 900; font-style: italic;
   font-size: clamp(80px, 12vw, 180px);
   line-height: .88; letter-spacing: -.04em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  color: #ffffff;
+  -webkit-text-stroke: 2px #ffffff;
   margin-bottom: 28px;
   display: block;
+  animation: bmwPulse 3s ease-in-out infinite;
+}
+@keyframes bmwPulse {
+  0%, 100% { opacity: 0.3; -webkit-text-stroke: 2px rgba(255,255,255,0.3); }
+  50%       { opacity: 1;   -webkit-text-stroke: 2px rgba(255,255,255,0.9); text-shadow: 0 0 80px rgba(255,255,255,0.2); }
 }
 .work-entry-country {
-  font-family: var(--sans); font-size: 10px; font-weight: 300;
-  letter-spacing: .45em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 14px;
+  font-family: var(--sans); font-size: clamp(18px, 2vw, 28px); font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: #b8a07a; margin-bottom: 14px;
 }
 .work-entry-tags {
-  font-family: var(--sans); font-size: 11px; font-weight: 300;
-  letter-spacing: .1em; color: var(--fog);
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  letter-spacing: 0.2em; color: #cccccc;
   margin-bottom: 28px;
 }
 .work-entry-desc {
