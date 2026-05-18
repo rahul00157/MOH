@@ -175,27 +175,27 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .form-section-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
 
-.form-field { display: flex; flex-direction: column; margin-bottom: 44px; }
+.form-field { display: flex; flex-direction: column; margin-bottom: 32px; }
 .form-field-label {
-  font-family: var(--sans); font-size: 9px; font-weight: 300;
-  letter-spacing: .45em; text-transform: uppercase; color: var(--fog);
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff;
   margin-bottom: 14px;
 }
 .form-input,
 .form-select,
 .form-textarea {
-  font-family: var(--sans); font-size: 15px; font-weight: 300;
-  color: var(--white); background: transparent;
-  border: none; border-bottom: 1px solid rgba(255,255,255,.18);
-  padding: 10px 0; outline: none; width: 100%;
+  font-family: var(--sans); font-size: 16px; font-weight: 300;
+  color: #ffffff; background: transparent;
+  border: none; border-bottom: 1px solid #444444;
+  padding: 14px 0; outline: none; width: 100%;
   transition: border-color .4s var(--ease-luxury);
   caret-color: var(--gold);
 }
 .form-input:focus,
 .form-select:focus,
-.form-textarea:focus { border-bottom-color: var(--white); }
+.form-textarea:focus { border-bottom-color: #ffffff; }
 .form-input::placeholder,
-.form-textarea::placeholder { color: transparent; }
+.form-textarea::placeholder { color: #555555; }
 
 .form-select-wrap { position: relative; }
 .form-select {
@@ -212,7 +212,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   transform: rotate(45deg);
   pointer-events: none;
 }
-.form-textarea { resize: none; line-height: 1.8; }
+.form-textarea { resize: none; line-height: 1.8; min-height: 120px; }
 
 .form-submit {
   font-family: var(--sans); font-size: 11px; font-weight: 400;
