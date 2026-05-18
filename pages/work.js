@@ -127,6 +127,7 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .work-entry {
   padding: 80px 64px;
+  border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid var(--ash);
 }
 .work-entry-brand {
@@ -259,6 +260,22 @@ const WORKS = [
     desc:    "684 decision-makers walked in. 28% more qualified than before.",
     href:    "#",
     bg:      "linear-gradient(rgba(0,80,40,0.08),rgba(0,80,40,0.08)),#0a0f0a",
+  },
+  {
+    brand:   "H&M",
+    country: "Fashion · India",
+    tags:    "Meta · Facebook · Instagram · Brand Recall",
+    desc:    "48 lakh impressions. 1 in 4 people remembered the brand.",
+    href:    "#",
+    bg:      "linear-gradient(rgba(120,0,20,0.08),rgba(120,0,20,0.08)),#0f0a0a",
+  },
+  {
+    brand:   "HIRA",
+    country: "Sweets · NCR",
+    tags:    "Meta · Facebook · Instagram · Local Campaign",
+    desc:    "12.5 lakh impressions. NCR noticed.",
+    href:    "#",
+    bg:      "linear-gradient(rgba(120,80,0,0.08),rgba(120,80,0,0.08)),#0f0d08",
   },
 ];
 
