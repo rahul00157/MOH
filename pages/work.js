@@ -220,6 +220,37 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 }
 .foot-social a:hover { color: #ffffff; }
 
+/* ── ENTRY ANIMATIONS ── */
+@keyframes curtainReveal {
+  0%   { clip-path: inset(0 0 100% 0); opacity: 0; }
+  100% { clip-path: inset(0 0 0% 0);   opacity: 1; }
+}
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes watermarkFade {
+  0%   { opacity: 0;    transform: translate(-50%,-50%) scale(1.1); }
+  100% { opacity: 0.04; transform: translate(-50%,-50%) scale(1); }
+}
+.work-section {
+  min-height: 100vh; position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  padding: 120px 64px;
+}
+.brand-name {
+  animation: curtainReveal 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 0;
+}
+.brand-details {
+  animation: fadeInUp 1s ease 0.6s forwards;
+  opacity: 0;
+}
+.brand-watermark {
+  animation: watermarkFade 1.5s ease 0.3s forwards;
+  opacity: 0;
+}
+
 /* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
 .rv.in { opacity:1; transform:translateY(0); }
