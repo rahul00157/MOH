@@ -429,6 +429,15 @@ export default function WorkPage() {
                 ref={reveal}
                 onMouseEnter={onEnter}
                 onMouseLeave={onLeave}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "10px",
+                  fontFamily: "var(--sans)", fontSize: "11px", fontWeight: 400,
+                  letterSpacing: "0.35em", textTransform: "uppercase",
+                  color: "#ffffff", textDecoration: "none",
+                  borderBottom: "1px solid rgba(255,255,255,0.3)",
+                  paddingBottom: "6px", marginTop: "32px",
+                  animation: "viewCasePulse 2.5s ease-in-out infinite",
+                }}
               >
                 View Case Study <span className="cta-arrow">→</span>
               </a>
