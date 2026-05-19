@@ -59,9 +59,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 
 /* ── HERO ── */
 .sv-hero {
-  min-height: 100vh; position: relative; overflow: hidden;
+  min-height: 60vh; position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 160px 64px 120px;
+  padding: 140px 64px 60px;
   border-bottom: 1px solid var(--ash);
 }
 .sv-hero-bg {
@@ -192,13 +192,68 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 .rv-d2 { transition-delay:.26s }
 .rv-d3 { transition-delay:.42s }
 
+/* ── FOOTER ── */
+.foot {
+  border-top: 1px solid var(--ash);
+  padding: 100px 64px 60px;
+  display: flex; flex-direction: column; gap: 80px;
+}
+.foot-top {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: start; gap: 80px;
+}
+.foot-brand .foot-the {
+  font-family: var(--sans); font-size: 9px; font-weight: 300;
+  letter-spacing: .55em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 4px;
+}
+.foot-brand .foot-moh {
+  font-family: var(--serif); font-size: 56px; font-weight: 900;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--white);
+  line-height: 1;
+}
+.foot-brand .foot-line {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--fog);
+  margin-top: 16px;
+}
+.foot-divider { width:1px; background: var(--ash); align-self: stretch; }
+.foot-nav { display: flex; flex-direction: column; gap: 18px; list-style: none; align-items: center; }
+.foot-nav a {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #d8d8d8;
+  text-decoration: none; transition: color .3s;
+}
+.foot-nav a:hover { color: var(--white); }
+.foot-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 48px; border-top: 1px solid var(--ash);
+  gap: 24px; flex-wrap: wrap;
+}
+.foot-copy {
+  font-family: var(--sans); font-size: 10px; font-weight: 300;
+  letter-spacing: .2em; color: #888888;
+}
+.foot-social { display: flex; gap: 36px; }
+.foot-social a {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #cccccc;
+  text-decoration: none; transition: color .3s;
+}
+.foot-social a:hover { color: #ffffff; }
+
 /* ── MOBILE ── */
 @media(max-width:960px) {
-  .sv-hero { padding:140px 28px 100px; }
+  .sv-hero { padding:120px 28px 60px; }
   .sv-section { padding:80px 28px; }
   .sv-section-header { flex-direction:column; gap:16px; margin-bottom:48px; }
   .sv-section-body { grid-template-columns:1fr; gap:48px; }
   .sv-close { padding:100px 28px; gap:40px; }
+  .foot { padding:80px 28px 48px; }
+  .foot-top { grid-template-columns:1fr; }
+  .foot-divider { display:none; }
+  .foot-nav { align-items:flex-start; }
+  .foot-bottom { flex-direction:column; align-items:flex-start; }
 }
 `;
 
@@ -333,7 +388,7 @@ export default function ServicesPage() {
       ))}
 
       {/* ──────── CTA ──────── */}
-      <section className="sv-close">
+      <section className="sv-close" style={{ borderTop: "1px solid var(--ash)" }}>
         <h2 className="sv-close-text rv" ref={reveal}>
           If you&rsquo;re looking for a vendor,{" "}
           <em style={{ fontStyle: "italic", color: "var(--gold)" }}>we&rsquo;re not it.</em>
@@ -350,6 +405,39 @@ export default function ServicesPage() {
           Let&rsquo;s Talk
         </a>
       </section>
+
+      {/* ──────── FOOTER ──────── */}
+      <footer className="foot">
+        <div className="foot-top">
+          <div className="foot-brand rv" ref={reveal}>
+            <div className="foot-the">the</div>
+            <div className="foot-moh">MOH</div>
+            <div className="foot-line">Media &amp; Growth Company — India</div>
+          </div>
+          <div className="foot-divider" />
+          <ul className="foot-nav rv rv-d1" ref={reveal}>
+            {[
+              { label: "Home",       href: "/" },
+              { label: "About Us",   href: "/about" },
+              { label: "What We Do", href: "/services" },
+              { label: "Work",       href: "/work" },
+              { label: "Contact",    href: "/contact" },
+            ].map(({ label, href }) => (
+              <li key={label}>
+                <a href={href} onMouseEnter={onEnter} onMouseLeave={onLeave}>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="foot-bottom rv" ref={reveal}>
+          <span className="foot-copy">© 2025 the MOH. All rights reserved.</span>
+          <div className="foot-social">
+            <a href="https://www.linkedin.com/company/the-moh-media" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>LinkedIn</a>
+            <a href="https://www.instagram.com/themohmedia/" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>Instagram</a>
+            <a href="https://x.com/themohmedia" target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}>X</a>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
