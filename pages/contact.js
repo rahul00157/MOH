@@ -226,6 +226,17 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   transition: background .35s var(--ease-luxury), color .35s var(--ease-luxury);
 }
 .form-submit:hover { background: transparent; color: var(--white); }
+.form-submit:disabled { opacity: .5; cursor: default; pointer-events: none; }
+.form-success {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(20px, 2.5vw, 32px);
+  color: var(--white); line-height: 1.5; padding: 48px 0;
+}
+.form-success span { color: var(--gold); }
+.form-error {
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  color: #cc6666; letter-spacing: .04em; margin-top: 16px;
+}
 
 .services-section-label {
   font-family: var(--sans); font-size: 10px; font-weight: 300;
@@ -386,6 +397,33 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", country: "", service: "", brief: "" });
   const setField = (field) => (e) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
+  const [loading,   setLoading]   = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setFormError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, message: form.brief }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        setFormError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setFormError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const onEnter = () => setExpand(true);
   const onLeave = () => setExpand(false);
 
@@ -447,7 +485,13 @@ export default function ContactPage() {
         <div>
           <div className="form-section-label rv" ref={reveal}>Get in Touch</div>
           <h2 className="form-section-heading">Let's Build Something Real.</h2>
-          <form onSubmit={e => e.preventDefault()}>
+          {submitted ? (
+            <div className="form-success">
+              Message received.<br />
+              <span>We&rsquo;ll be in touch within 24 hours.</span>
+            </div>
+          ) : (
+          <form onSubmit={handleSubmit}>
 
             <div className="form-field rv" ref={reveal}>
               <label className="form-field-label" htmlFor="cf-name">Full Name</label>
@@ -511,11 +555,15 @@ export default function ContactPage() {
             </div>
 
             <button className="form-submit rv" ref={reveal} type="submit"
+              disabled={loading}
               onMouseEnter={onEnter} onMouseLeave={onLeave}>
-              Let's Talk
+              {loading ? "Sending…" : "Let's Talk"}
             </button>
 
+            {formError && <p className="form-error">{formError}</p>}
+
           </form>
+          )}
         </div>
 
         {/* Right: Services */}
