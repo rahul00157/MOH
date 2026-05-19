@@ -210,6 +210,18 @@ const SERVICES = [
     desc: "Most people run ads without knowing who they're talking to. We don't touch your ad account until we understand your buyer.",
     subs: ["Meta Ad Systems", "Google Growth Campaigns", "LinkedIn Ads", "Conversion Advertising", "Revenue Funnel Optimization"],
   },
+  {
+    num: "03",
+    name: "Creative & Visual",
+    desc: "People judge your brand in 3 seconds. We make sure those 3 seconds count.",
+    subs: ["Brand Visual Identity", "Ad Creative Production", "Motion Graphics", "Video Editing", "Logo Design"],
+  },
+  {
+    num: "04",
+    name: "Founder Branding",
+    desc: "People don't buy products. They buy from people they trust. If you're not visible you're invisible.",
+    subs: ["Founder Branding", "LinkedIn Authority Building", "Personal Brand Systems", "Thought Leadership Positioning", "Public Influence Growth"],
+  },
 ];
 
 /* ─────────────────────────────────────────────
