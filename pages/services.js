@@ -416,7 +416,8 @@ export default function ServicesPage() {
           <div className="foot-brand rv" ref={reveal}>
             <div className="foot-the">the</div>
             <div className="foot-moh"><span style={{ animation: "mohFooterGlow 3s ease-in-out infinite" }}>MOH</span></div>
-            <div className="foot-line">Media &amp; Growth Company — India</div>
+            <div className="foot-line">Media &amp; Growth Company</div>
+            <div style={{ fontFamily:"var(--sans)", fontSize:"10px", letterSpacing:".3em", color:"#555555", textTransform:"uppercase", marginTop:"6px" }}>India · USA · Canada · UAE</div>
           </div>
           <div className="foot-divider" />
           <ul className="foot-nav rv rv-d1" ref={reveal}>
