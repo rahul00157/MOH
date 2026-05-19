@@ -11,6 +11,9 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function handler(req, res) {
+  console.log("API called", req.method);
+  console.log("Body:", req.body);
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -51,6 +54,7 @@ export default async function handler(req, res) {
   `;
 
   try {
+    console.log("Attempting to send email to rahul@themohmedia.com");
     await transporter.sendMail({
       from: '"the MOH Website" <rahul@themohmedia.com>',
       to: "rahul@themohmedia.com",
