@@ -106,34 +106,49 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 @keyframes svFadeUp  { from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:translateY(0); } }
 @keyframes svSlideUp { from{ opacity:0; transform:translateY(44px); } to{ opacity:1; transform:translateY(0); } }
 
-/* ── SERVICES GRID ── */
-.sv-list {
+/* ── SERVICE SECTIONS ── */
+.sv-section {
+  padding: 120px 64px;
   border-top: 1px solid var(--ash);
 }
-.sv-item {
-  display: grid; grid-template-columns: 80px 1fr 1fr;
-  align-items: start;
-  gap: 48px;
-  padding: 72px 64px;
-  border-bottom: 1px solid var(--ash);
-  transition: background .4s var(--ease-luxury);
+.sv-section-header {
+  display: flex; align-items: baseline; gap: 32px;
+  margin-bottom: 72px;
 }
-.sv-item:hover { background: rgba(255,255,255,.018); }
-.sv-item-num {
+.sv-section-num {
+  font-family: var(--sans); font-size: 11px; font-weight: 300;
+  letter-spacing: .5em; text-transform: uppercase; color: var(--gold);
+  flex-shrink: 0; padding-top: 6px;
+}
+.sv-section-title {
   font-family: var(--serif); font-weight: 900; font-style: italic;
-  font-size: 13px; color: var(--gold-dim);
-  letter-spacing: .04em; padding-top: 6px;
+  font-size: clamp(48px, 7vw, 110px);
+  line-height: .92; letter-spacing: -.03em; color: var(--white);
 }
-.sv-item-name {
-  font-family: var(--serif); font-weight: 700; font-style: italic;
-  font-size: clamp(28px, 3.5vw, 52px);
-  color: var(--white); line-height: 1.05; letter-spacing: -.02em;
+.sv-section-body {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
 }
-.sv-item-body {
-  font-family: var(--sans); font-size: 15px; font-weight: 300;
-  color: var(--haze); line-height: 1.8; letter-spacing: .01em;
-  padding-top: 8px;
+.sv-section-desc {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(18px, 2vw, 26px);
+  color: #aaaaaa; line-height: 1.75; letter-spacing: -.01em;
 }
+.sv-subs {
+  display: flex; flex-direction: column; gap: 0;
+}
+.sv-sub {
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  letter-spacing: .25em; text-transform: uppercase; color: var(--pearl);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--ash);
+  display: flex; align-items: center; gap: 16px;
+}
+.sv-sub::before {
+  content: ''; display: block; flex-shrink: 0;
+  width: 20px; height: 1px; background: var(--gold);
+}
+.sv-sub:first-child { border-top: 1px solid var(--ash); }
 
 /* ── CLOSING ── */
 .sv-close {
@@ -171,8 +186,9 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 /* ── MOBILE ── */
 @media(max-width:960px) {
   .sv-hero { padding:140px 28px 100px; }
-  .sv-item { grid-template-columns:1fr; gap:20px; padding:56px 28px; }
-  .sv-item-num { padding-top:0; }
+  .sv-section { padding:80px 28px; }
+  .sv-section-header { flex-direction:column; gap:16px; margin-bottom:48px; }
+  .sv-section-body { grid-template-columns:1fr; gap:48px; }
   .sv-close { padding:100px 28px; gap:40px; }
 }
 `;
@@ -184,33 +200,15 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
 const SERVICES = [
   {
     num: "01",
-    name: "Programmatic Advertising",
-    body: "DV360. The Trade Desk. Precision targeting at scale. We put your brand in front of the right person on the right screen at the right moment — not just everyone everywhere. Billions of impressions, none of them wasted.",
+    name: "Attention Marketing",
+    desc: "You're posting. You're creating. But nobody's watching. We build social systems that stop the scroll.",
+    subs: ["Social Strategy", "Viral Content Systems", "Brand Visibility Growth", "Audience Engagement", "Community Growth"],
   },
   {
     num: "02",
-    name: "Social Media Marketing",
-    body: "Meta. Instagram. Facebook. We don't boost posts. We build campaigns with intent — creative that stops the scroll, strategy that compounds over time, and reporting that tells you exactly what worked.",
-  },
-  {
-    num: "03",
-    name: "B2B Lead Generation",
-    body: "LinkedIn isn't just a job board. It's where decision-makers live. We engineer campaigns that reach founders, directors, and buyers — and turn them into qualified leads your sales team will actually want to call.",
-  },
-  {
-    num: "04",
-    name: "Brand Strategy",
-    body: "Before a single rupee goes into media, we make sure your brand knows what it stands for. Positioning, messaging, tone — the foundation that makes everything else work harder and cost less.",
-  },
-  {
-    num: "05",
-    name: "Performance Marketing",
-    body: "Every campaign is a machine. We build it to convert — from the first impression to the final click. CPL, ROAS, CAC — we track what matters and optimise until the numbers make sense.",
-  },
-  {
-    num: "06",
-    name: "Local & Hyperlocal Campaigns",
-    body: "National brands don't always need national reach. Sometimes you need NCR. Sometimes you need one pin code. We build campaigns that target the right geography — without wasting spend on the wrong one.",
+    name: "Performance Growth",
+    desc: "Most people run ads without knowing who they're talking to. We don't touch your ad account until we understand your buyer.",
+    subs: ["Meta Ad Systems", "Google Growth Campaigns", "LinkedIn Ads", "Conversion Advertising", "Revenue Funnel Optimization"],
   },
 ];
 
@@ -284,21 +282,22 @@ export default function ServicesPage() {
       </section>
 
       {/* ──────── SERVICES ──────── */}
-      <section className="sv-list">
-        {SERVICES.map(({ num, name, body }, i) => (
-          <div
-            key={num}
-            className={`sv-item rv rv-d${Math.min((i % 3) + 1, 3)}`}
-            ref={reveal}
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
-          >
-            <div className="sv-item-num">{num}</div>
-            <div className="sv-item-name">{name}</div>
-            <div className="sv-item-body">{body}</div>
+      {SERVICES.map(({ num, name, desc, subs }) => (
+        <section key={num} className="sv-section">
+          <div className="sv-section-header rv" ref={reveal}>
+            <span className="sv-section-num">{num}</span>
+            <h2 className="sv-section-title">{name}</h2>
           </div>
-        ))}
-      </section>
+          <div className="sv-section-body">
+            <p className="sv-section-desc rv rv-d1" ref={reveal}>{desc}</p>
+            <ul className="sv-subs rv rv-d2" ref={reveal}>
+              {subs.map(s => (
+                <li key={s} className="sv-sub">{s}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ))}
 
       {/* ──────── CLOSING ──────── */}
       <section className="sv-close">
