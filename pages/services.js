@@ -175,6 +175,15 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   transition: color .3s, gap .3s var(--ease-luxury);
 }
 .sv-cta:hover { color: var(--white); gap: 18px; }
+.sv-cta-btn {
+  font-family: var(--sans); font-size: 11px; font-weight: 400;
+  letter-spacing: .35em; text-transform: uppercase; color: var(--ink);
+  background: var(--gold); text-decoration: none;
+  display: inline-flex; align-items: center;
+  padding: 20px 52px;
+  transition: background .35s var(--ease-luxury), color .35s, letter-spacing .35s var(--ease-luxury);
+}
+.sv-cta-btn:hover { background: var(--white); letter-spacing: .5em; }
 
 /* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(48px); transition:opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury); }
@@ -221,6 +230,18 @@ const SERVICES = [
     name: "Founder Branding",
     desc: "People don't buy products. They buy from people they trust. If you're not visible you're invisible.",
     subs: ["Founder Branding", "LinkedIn Authority Building", "Personal Brand Systems", "Thought Leadership Positioning", "Public Influence Growth"],
+  },
+  {
+    num: "05",
+    name: "Digital Infrastructure",
+    desc: "Your brand needs more than marketing. It needs a digital home that converts. We build everything your business needs to run and grow online.",
+    subs: ["High-Conversion Websites", "E-Commerce Development", "Landing Page Systems", "CRM Systems", "Automation Workflows", "Custom Software"],
+  },
+  {
+    num: "06",
+    name: "Full Growth System",
+    desc: "Everything connected. One goal. Unstoppable growth. For brands that are done doing things in pieces.",
+    subs: ["Complete Brand Audit", "Multi-Channel Strategy", "Paid & Organic Combined", "Analytics Dashboard", "Monthly Scaling"],
   },
 ];
 
@@ -311,21 +332,19 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      {/* ──────── CLOSING ──────── */}
+      {/* ──────── CTA ──────── */}
       <section className="sv-close">
-        <p className="sv-close-text rv" ref={reveal}>
-          If you&rsquo;re looking for a vendor, we&rsquo;re not it.<br />
-          If you&rsquo;re looking for a partner — let&rsquo;s talk.
-        </p>
-        <p className="sv-close-sub rv rv-d1" ref={reveal}>the MOH · India</p>
+        <h2 className="sv-close-text rv" ref={reveal}>
+          Ready to build something real?
+        </h2>
         <a
-          href="mailto:hello@themoh.in"
-          className="sv-cta rv rv-d2"
+          href="/contact"
+          className="sv-cta-btn rv rv-d1"
           ref={reveal}
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
         >
-          Get in touch →
+          Let&rsquo;s Talk
         </a>
       </section>
     </>
