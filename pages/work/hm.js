@@ -217,10 +217,10 @@ const BRIEF = [
 ];
 
 const STATS = [
-  { num: "48L",  label: "Impressions" },
-  { num: "1-in-4", label: "Brand Recall" },
-  { num: "6",    label: "Months" },
-  { num: "Meta", label: "Platform" },
+  { num: "48L", label: "Impressions Delivered" },
+  { num: "48%", label: "Impression Share" },
+  { num: "25%", label: "Brand Recall Rate" },
+  { num: "6",   label: "Months" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -312,9 +312,10 @@ export default function HMCaseStudy() {
       {/* ──────── CHALLENGE ──────── */}
       <section className="cs-challenge">
         <p className="cs-challenge-text rv" ref={reveal}>
-          H&amp;M India didn&rsquo;t need more followers. They needed to be remembered.
-          In a market saturated with fast fashion, standing out isn&rsquo;t about being louder —
-          it&rsquo;s about being smarter. Meta was the canvas. Precision was the strategy.
+          H&amp;M is a global name. But in India — every fashion brand is fighting for the same feed.
+          The same scroll. The same 3 seconds of attention. The challenge wasn&rsquo;t just reach.
+          It was recall. Anyone can get impressions. Making someone remember you —
+          that&rsquo;s the real game.
         </p>
       </section>
 
@@ -331,10 +332,10 @@ export default function HMCaseStudy() {
       {/* ──────── RESULT ──────── */}
       <section className="cs-result">
         <p className="cs-result-text rv" ref={reveal}>
-          48 lakh impressions across Facebook and Instagram. And more importantly —
-          1 in 4 people who saw it actually remembered it. In fashion, that&rsquo;s not a metric.
-          That&rsquo;s a moment. That&rsquo;s the brand living in someone&rsquo;s head
-          the next time they walk into a mall.
+          48 lakh impressions delivered. Almost half the impression share in a highly competitive
+          space. And 1 in 4 people — when asked about the brand — remembered H&amp;M.
+          That&rsquo;s not just reach. That&rsquo;s memory.
+          That&rsquo;s what real brand building looks like.
         </p>
         <a href="/work" className="cs-back rv rv-d1" ref={reveal} onMouseEnter={onEnter} onMouseLeave={onLeave}>
           ← Back to Work
