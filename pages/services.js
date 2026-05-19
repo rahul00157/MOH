@@ -335,7 +335,10 @@ export default function ServicesPage() {
       {/* ──────── CTA ──────── */}
       <section className="sv-close">
         <h2 className="sv-close-text rv" ref={reveal}>
-          Ready to build something real?
+          If you&rsquo;re looking for a vendor,{" "}
+          <em style={{ fontStyle: "italic", color: "var(--gold)" }}>we&rsquo;re not it.</em>
+          <br />
+          If you&rsquo;re looking for a partner — let&rsquo;s talk.
         </h2>
         <a
           href="/contact"
