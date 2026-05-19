@@ -241,6 +241,10 @@ body { background: var(--ink); font-family: var(--sans); font-weight: 300; curso
   text-decoration: none; transition: color .3s;
 }
 .foot-social a:hover { color: #ffffff; }
+@keyframes mohFooterGlow {
+  0%,100%{ color:#ffffff; text-shadow:none; }
+  50%{ color:#e8d9be; text-shadow: 0 0 40px rgba(184,160,122,0.4), 0 0 80px rgba(184,160,122,0.2); }
+}
 
 /* ── MOBILE ── */
 @media(max-width:960px) {
@@ -411,7 +415,7 @@ export default function ServicesPage() {
         <div className="foot-top">
           <div className="foot-brand rv" ref={reveal}>
             <div className="foot-the">the</div>
-            <div className="foot-moh">MOH</div>
+            <div className="foot-moh"><span style={{ animation: "mohFooterGlow 3s ease-in-out infinite" }}>MOH</span></div>
             <div className="foot-line">Media &amp; Growth Company — India</div>
           </div>
           <div className="foot-divider" />
