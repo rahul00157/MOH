@@ -303,7 +303,7 @@ const WORKS = [
     country: "Properties",
     tags:    "LinkedIn · B2B Lead Gen · Real Estate · India",
     desc:    "684 decision-makers walked in. 28% more qualified than before.",
-    href:    "#",
+    href:    "/work/godrej",
     bg:      "linear-gradient(rgba(0,80,40,0.08),rgba(0,80,40,0.08)),#0a0f0a",
   },
   {
@@ -311,7 +311,7 @@ const WORKS = [
     country: "Fashion · India",
     tags:    "Meta · Facebook · Instagram · Brand Recall",
     desc:    "48 lakh impressions. 1 in 4 people remembered the brand.",
-    href:    "#",
+    href:    "/work/hm",
     bg:      "linear-gradient(rgba(120,0,20,0.08),rgba(120,0,20,0.08)),#0f0a0a",
   },
   {
@@ -319,7 +319,7 @@ const WORKS = [
     country: "Sweets · NCR",
     tags:    "Meta · Facebook · Instagram · Local Campaign",
     desc:    "12.5 lakh impressions. NCR noticed.",
-    href:    "#",
+    href:    "/work/hira",
     bg:      "linear-gradient(rgba(120,80,0,0.08),rgba(120,80,0,0.08)),#0f0d08",
   },
 ];
