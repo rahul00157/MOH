@@ -2,8 +2,8 @@ import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: "rahul@themohmedia.com",
     pass: process.env.SMTP_PASSWORD,
@@ -62,6 +62,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error("Mail error:", err);
+    console.error("SMTP Error:", err.message, err.code);
     return res.status(500).json({ error: "Failed to send message. Please try again." });
   }
 }
