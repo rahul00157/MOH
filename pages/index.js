@@ -697,6 +697,9 @@ export default function TheMOHHomepage() {
 
       {/* ──────── HERO ──────── */}
       <section className="hero">
+        <video autoPlay muted loop playsInline style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.15,zIndex:0,pointerEvents:'none'}}>
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-vignette" aria-hidden="true" />
 
