@@ -569,7 +569,7 @@ const NAV_ITEMS = [
 ];
 
 /** Marquee labels cycling continuously in the ticker strip. */
-const TICKER_ITEMS = ["Brand Identity", "Visual Campaigns", "Growth Strategy", "Moving Image", "Editorial Direction", "Market Dominance", "Founder Branding", "Cultural Influence"];
+const TICKER_ITEMS = ["Attention Marketing", "Performance Growth", "Creative & Visual", "Founder Branding", "Digital Infrastructure", "Full Growth System", "Media & Growth", "India · USA · UAE · Canada"];
 
 /**
  * Featured case study entries shown in the work grid.
