@@ -626,8 +626,8 @@ export default function AboutPage() {
               <div className="team-name">Mansi Rajpoot</div>
               <div className="team-role">Co-Founder &amp; COO</div>
             </div>
-            <div className="team-photo" aria-hidden="true">
-              <div className="team-photo-inner" />
+            <div className="team-photo">
+              <img src="/mansi.jpg" alt="Mansi Rajpoot" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'top'}} />
             </div>
             <p className="team-tagline">The operations. The creative. The execution.</p>
           </div>

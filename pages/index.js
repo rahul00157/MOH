@@ -879,7 +879,7 @@ export default function TheMOHHomepage() {
             <div className="foot-the">the</div>
             <div className="foot-moh">MOH</div>
             <div className="foot-line">Media & Growth Company</div>
-            <div style={{ fontFamily:"var(--sans)", fontSize:"11px", letterSpacing:".35em", color:"#888888", textTransform:"uppercase", marginTop:"6px", fontWeight:400 }}>India · USA · Canada · UAE</div>
+            <div style={{ fontFamily:"var(--sans)", fontSize:"13px", letterSpacing:".3em", color:"#aaaaaa", textTransform:"uppercase", marginTop:"6px", fontWeight:500 }}>India · USA · Canada · UAE</div>
           </div>
           <div className="foot-divider" />
           <ul className="foot-nav rv rv-d1" ref={reveal}>
