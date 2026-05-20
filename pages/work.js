@@ -297,6 +297,7 @@ const WORKS = [
     bg:        "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,60,150,0.12) 0%, transparent 70%), #080810",
     watermark: "BMW",
     logoSrc:   "/bmw.png",
+    videoBg:   "/bmw-section.mp4",
   },
   {
     brand:   "GODREJ",
@@ -397,8 +398,13 @@ export default function WorkPage() {
 
       {/* ──────── WORK LIST ──────── */}
       <section className="work-list">
-        {WORKS.map(({ brand, country, tags, desc, href, bg, watermark, logoSrc }) => (
-          <article key={brand} className="work-entry" style={{ background: bg, position: "relative" }}>
+        {WORKS.map(({ brand, country, tags, desc, href, bg, watermark, logoSrc, videoBg }) => (
+          <article key={brand} className="work-entry" style={{ background: bg, position: "relative", overflow: "hidden" }}>
+            {videoBg && (
+              <video autoPlay muted loop playsInline style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.12,zIndex:0,pointerEvents:'none'}}>
+                <source src={videoBg} type="video/mp4" />
+              </video>
+            )}
             {logoSrc && (
               <img
                 src={logoSrc} alt="" aria-hidden="true"
