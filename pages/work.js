@@ -314,6 +314,7 @@ const WORKS = [
     desc:    "48 lakh impressions. 1 in 4 people remembered the brand.",
     href:    "/work/hm",
     bg:      "linear-gradient(rgba(120,0,20,0.08),rgba(120,0,20,0.08)),#0f0a0a",
+    videoBg: "/hm-section.mp4",
   },
   {
     brand:   "HIRA",
