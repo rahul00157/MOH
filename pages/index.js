@@ -727,8 +727,8 @@ export default function TheMOHHomepage() {
               the MOH — Media & Growth
             </div>
             <div className="hero-ctas">
-              <a href="#" className="btn-p" onMouseEnter={onEnter} onMouseLeave={onLeave}>See Our Work</a>
-              <a href="#" className="btn-g" onMouseEnter={onEnter} onMouseLeave={onLeave}>Our Studio</a>
+              <a href="/work" className="btn-p" onMouseEnter={onEnter} onMouseLeave={onLeave}>See Our Work</a>
+              <a href="/about" className="btn-g" onMouseEnter={onEnter} onMouseLeave={onLeave}>Our Studio</a>
             </div>
           </div>
         </div>
